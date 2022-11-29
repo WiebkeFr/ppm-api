@@ -2,7 +2,7 @@
   <executionhandler>ruby</executionhandler>
   <dataelements/>
   <subscriptions xmlns="http://riddl.org/ns/common-patterns/notifications-producer/2.0">
-    <subscription xmlns="http://riddl.org/ns/common-patterns/notifications-producer/2.0" id="_student" url="https://lehre.bpm.in.tum.de/~tumuser/log.php">
+    <subscription xmlns="http://riddl.org/ns/common-patterns/notifications-producer/2.0" id="_student" url="https://lehre.bpm.in.tum.de/ports/9009/">
     <topic id="state">
     <event>change</event>
     </topic>
