@@ -1,9 +1,6 @@
 from typing import Union
 from fastapi import Request, FastAPI
 
-# uvicorn main:app --reload
-# source env/bin/activate
-
 app = FastAPI()
 
 @app.get("/")
