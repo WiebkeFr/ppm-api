@@ -13,18 +13,18 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-@app.get("/", response_class = HTMLResponse)
+@app.get("/", response_class = HTMLResponse, tags=["Frontend"])
 def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/api/upload")
+@app.post("/api/upload", tags=["API"])
 async def upload(request: Request):
     form = await request.form()
     print(form)
     return {"state": "success"}
 
 
-@app.post("/api/log")
+@app.post("/api/log", tags=["API"])
 async def log(request: Request):
     body_as_byte = await request.body()
     all_infos = body_as_byte.decode('UTF-8').split("\r\n")
