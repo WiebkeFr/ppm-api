@@ -3,12 +3,11 @@
 ### How to start RestAPI?
 ```
 source env/bin/activate
-cd api
 pip3 install -r requirements.txt
 uvicorn main:app --host '::1' --port 9009
 ```
 
-### Overview: ``/api``
+### Overview:
 - #### run-process.sh
 This is how the bash-script is run
 ```
