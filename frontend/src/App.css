@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.side-nav {
+  height: 100%;
+  width: 12rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: auto 3rem;
+  align-items: center;
+  display: flex;
+  overflow-x: hidden;
+}
+
+main {
+  margin-left: 14rem;
+  padding: 0px 1rem;
+  max-width: 65rem;
+}
+
+.side-link {
+  border-left: 3px solid white;
+  color: #484848 !important;
+  font-weight: 600 !important;
+}
+
+.side-link.active {
+  border-left: 3px solid royalblue;
+}
+
+.side-link:hover {
+  color: #484848b0 !important;
+}
+
+header {
+  margin-top: 8rem;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.file-upload-field {
+  max-width: 25rem;
+}
