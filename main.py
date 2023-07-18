@@ -51,23 +51,22 @@ base_path = f"/ports/{port}"
 print(base_path)
 
 app.include_router(upload.router,
-                   prefix=base_path + "/api/upload",
+                   prefix="/api/upload",
                    tags=["API – Upload"])
 
 app.include_router(evaluate.router,
-                   prefix=base_path + "/api/evaluate",
+                   prefix="/api/evaluate",
                    tags=["API – Evaluation"])
 
 app.include_router(train.router,
-                   prefix=base_path + "/api/train",
+                   prefix="/api/train",
                    tags=["API – Training"])
 
 app.include_router(train.router,
-                   prefix=base_path + "/api/predict",
+                   prefix="/api/predict",
                    tags=["API – Prediction"])
 
 app.include_router(frontend.router,
-                   prefix=base_path,
                    tags=["API – Frontend"])
 
 @app.get("/test", tags=["API – Organization"])
@@ -86,14 +85,14 @@ async def delete_files_in_directory(dir: str):
     else:
         return {"status": "provided directory does not exist"}
 
-app.mount(base_path + "/static", StaticFiles(directory="frontend/build/static"), name="static")
-app.mount(base_path + "/public", StaticFiles(directory="frontend/public"), name="build")
+app.mount("/static", StaticFiles(directory="frontend/build/static"), name="static")
+app.mount("/public", StaticFiles(directory="frontend/public"), name="build")
 
 @click.command()
 @click.option('-p', '--port', type=click.IntRange(min=9000, max=10000), default=9999, help='The port on which the webservice is running')
 def main(port):
     os.environ["PORT"] = str(port)
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, root_path=f"/ports/9999", reload=True)
+    uvicorn.run("main:app", host="::1", port=9999, root_path=f"/ports/9999", reload=True)
 
 
 if __name__ == '__main__':
