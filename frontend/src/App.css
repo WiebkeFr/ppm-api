@@ -21,9 +21,11 @@
   top: 0;
   left: 0;
   margin: auto 3rem;
+  margin-left: 0px;
   align-items: center;
   display: flex;
   overflow-x: hidden;
+  padding-right: 32px;
 }
 
 main {
@@ -52,6 +54,16 @@ header {
   font-size: 2rem;
 }
 
+footer {
+  min-height: 8rem;
+  margin: auto;
+}
+
 .file-upload-field {
   max-width: 25rem;
+}
+
+.svg-container > svg {
+  width: 100%;
+  height: fit-content;
 }

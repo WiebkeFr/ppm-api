@@ -1,13 +1,16 @@
 import pandas as pd
 import csv
 import os.path
+
 from starlette.requests import Request
 import xmltodict
 import json
-from fastapi import APIRouter
-from typing import Annotated
-
-from fastapi import FastAPI, Form, File, UploadFile
+from fastapi import APIRouter, Response, BackgroundTasks
+import uuid
+from typing import Optional
+from fastapi import Form, File, UploadFile
+from pydantic import BaseModel
+from helper.process_uploads import process_csv, process_xes
 
 from utils.subscriptions import add_subscription
 from utils.run_events import start_shell_script
@@ -15,25 +18,43 @@ from utils.run_events import start_shell_script
 router = APIRouter()
 
 
-@router.post("/api/upload/event-logs", tags=["API"])
-async def upload(file: UploadFile = File(...)):
-    print("----------- EVENT UPLOAD ------------")
+class Info(BaseModel):
+    isWithHeader: bool
+    delimiter: str
+    caseIdColumn: int
+    activityColumn: int
+    timestampColumn: int
+
+
+def remove_starting_event(filename: str):
+    import pm4py
+    filepath = os.path.join(os.curdir, "data", "logs", filename)
+    log = pm4py.read_xes(filepath)
+    if "lifecycle:transition" in log:
+        x = log[(log["lifecycle:transition"] == "complete") | (log["lifecycle:transition"] == "COMPLETE")]
+        print(x[:3])
+        print(x.columns)
+        pm4py.write_xes(x, filepath)
+
+
+@router.post("/event-logs")
+async def upload_event_logs(response: Response, background_tasks: BackgroundTasks, file: UploadFile = File(...),
+                            info: Optional[str] = Form(None)):
     print(file.filename)
-    contents = await file.read()
-    xml = contents.decode('UTF-8')
-    print(xml)
-    # file_name = file.filename
-    # print(file_name)
-    # add_subscription(xml)
-    # updated_xml = add_subscription(xml)
-    # with open(file_name, 'w') as file:
-        # file.write(updated_xml)
-        # file.close()
-    # start_shell_script()
+    session_id = str(uuid.uuid4())
+
+    if file.filename[-3:] == 'csv':
+        process_csv(file, session_id, info)
+    if file.filename[-3:] == 'xes':
+        await process_xes(file, session_id)
+
+    filename = "{}.{}".format(session_id, file.filename[-3:])
+    response.set_cookie(key="ppm-api", value=filename)
+    background_tasks.add_task(remove_starting_event, filename)
     return {"state": "success"}
 
 
-@router.post("/api/upload/cpee-process", tags=["API"])
+@router.post("/cpee-process")
 async def upload(request: Request):
     form_data = await request.form()
     file = form_data.get("file")
@@ -49,8 +70,8 @@ async def upload(request: Request):
     return {"state": xmltodict.parse(updated_xml)}
 
 
-@router.post("/api/upload/link", tags=["API"])
-async def upload(request: Request):
+@router.post("/link")
+async def upload_cpee_link(request: Request):
     print("")
     form_data = await request.form()
     file = form_data.get("file")
@@ -66,8 +87,8 @@ async def upload(request: Request):
     return {"state": xmltodict.parse(updated_xml)}
 
 
-@router.post("/api/log", tags=["API"])
-async def log(request: Request):
+@router.post("/log")
+async def collect_cpee_event_logs(request: Request):
     body_as_byte = await request.body()
     all_infos = body_as_byte.decode('UTF-8').split("\r\n")
     body_as_string = [param for param in all_infos if param.startswith("{") and param.endswith("}")][0]
@@ -87,4 +108,4 @@ async def log(request: Request):
     df = pd.read_csv('{0}.csv'.format(file_name))
     print(df)
 
-    return {"trace": "success"}
+    return {"state": "success"}

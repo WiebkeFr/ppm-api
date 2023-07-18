@@ -1,18 +1,42 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
 
+const pages = [
+  {
+    href: "",
+    label: "Upload",
+  },
+  {
+    href: "selection",
+    label: "Selection",
+  },
+  {
+    href: "training",
+    label: "Training",
+  },
+  {
+    href: "prediction",
+    label: "Prediction",
+  },
+  {
+    href: "information",
+    label: "Additional Information",
+  },
+];
 export const Sidebar = () => (
-    <section className="side-nav">
-      <Nav className="flex-column">
-        <Nav.Link className={`side-link ${window.location.pathname === '/' && 'active'}`} href="/">
-          Upload
+  <section className="side-nav">
+    <Nav className="flex-column">
+      {pages.map(({ href, label }) => (
+        <Nav.Link
+          className={`side-link ${
+            window.location.pathname === `/${href}` && "active"
+          }`}
+          href={`/${href}`}
+        >
+          {label}
         </Nav.Link>
-        <Nav.Link className={`side-link ${window.location.pathname === '/selection' && 'active'}`} href="/selection">
-          Selection
-        </Nav.Link>
-        <Nav.Link className={`side-link ${window.location.pathname === '/information' && 'active'}`} href="/information">
-          Additional Information
-        </Nav.Link>
-      </Nav>
-    </section>
-  );
+      ))}
+    </Nav>
+    <div className="vr"></div>
+  </section>
+);
