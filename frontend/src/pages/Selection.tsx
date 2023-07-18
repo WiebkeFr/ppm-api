@@ -19,6 +19,7 @@ const initialTrainingOptions = TrainingInfoOptions.reduce(
 ) as TrainingInfoSelection;
 
 export const Selection = () => {
+  const prefix = process.env.REACT_APP_PREFIX;
   const [measures, setMeasures] = useState<Measurement | {}>({});
   const [error, setError] = useState<string>("");
   const [trainingInfo, setTrainingInfo] = useState<TrainingInfoSelection>(
@@ -37,7 +38,7 @@ export const Selection = () => {
   useEffect(() => {
     if (Object.keys(measures).length === 0) {
       axios
-        .get("api/evaluate/log")
+        .get(prefix + "/api/evaluate/log")
         .then((res) => {
           console.log(res.data);
           setMeasures(res.data);
@@ -50,19 +51,19 @@ export const Selection = () => {
   });
 
   const startTraining = () => {
-    axios.post("/api/train", trainingInfo).then((res) => {
+    axios.post(prefix + "/api/train", trainingInfo).then((res) => {
       if (res.data.state === "warning-duplicate") {
         setShowModal(true);
       }
       if (res.data.state === "success") {
-        navigate("/training");
+        navigate(prefix + "/training");
       }
     });
   };
 
   const restartTraining = () => {
-    axios.post("/api/train?overwrite=true", trainingInfo);
-    navigate("/training");
+    axios.post(prefix + "/api/train?overwrite=true", trainingInfo);
+    navigate(prefix + "/training");
   };
 
   return (
@@ -87,7 +88,8 @@ export const Selection = () => {
                 id={option.key}
                 onChange={(e) => handleChange(key, option.key)}
                 checked={
-                  trainingInfo[key as keyof TrainingInfoSelection] === option.key
+                  trainingInfo[key as keyof TrainingInfoSelection] ===
+                  option.key
                 }
               />
               <label className="form-check-label" htmlFor={option.key}>

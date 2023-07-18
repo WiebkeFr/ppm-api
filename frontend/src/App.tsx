@@ -11,8 +11,9 @@ import { Training } from "./pages/Training";
 import { Prediction } from "./pages/Prediction";
 
 function App() {
+  const base = process.env.REACT_APP_PREFIX;
   return (
-    <Router>
+    <Router basename={base}>
       <Sidebar />
       <main>
         <header>Predictive Process Monitoring - Next Event Prediction</header>

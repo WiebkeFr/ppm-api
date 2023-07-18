@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { AdditionalInfoCsv } from "../types";
 
 export const Upload = () => {
+  const prefix = process.env.REACT_APP_PREFIX;
   const [file, setFile] = useState<File>();
   const [info, setInfo] = useState<AdditionalInfoCsv>({
     isWithHeader: false,
@@ -38,7 +39,7 @@ export const Upload = () => {
     formData.append("info", JSON.stringify(info));
 
     axios
-      .post("/api/upload/event-logs", formData, {
+      .post(prefix + "/api/upload/event-logs", formData, {
         onUploadProgress: (progressEvent) => {
           if (progressEvent.total) {
             const progress = (progressEvent.loaded / progressEvent.total) * 100;
@@ -120,7 +121,7 @@ export const Upload = () => {
         </div>
       )}
       {progress === 100 && (
-        <a href="/selection" style={{ display: "block" }}>
+        <a href={prefix + "/selection"} style={{ display: "block" }}>
           <button className="border rounded my-5 p-2">
             Selection
             <i className="bi bi-arrow-right ps-2"></i>

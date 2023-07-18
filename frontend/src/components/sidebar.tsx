@@ -23,20 +23,24 @@ const pages = [
     label: "Additional Information",
   },
 ];
-export const Sidebar = () => (
-  <section className="side-nav">
-    <Nav className="flex-column">
-      {pages.map(({ href, label }) => (
-        <Nav.Link
-          className={`side-link ${
-            window.location.pathname === `/${href}` && "active"
-          }`}
-          href={`/${href}`}
-        >
-          {label}
-        </Nav.Link>
-      ))}
-    </Nav>
-    <div className="vr"></div>
-  </section>
-);
+
+export const Sidebar = () => {
+  const prefix = process.env.REACT_APP_PREFIX;
+  return (
+    <section className="side-nav">
+      <Nav className="flex-column">
+        {pages.map(({ href, label }) => (
+          <Nav.Link
+            className={`side-link ${
+              window.location.pathname === `${prefix}/${href}` && "active"
+            }`}
+            href={`${prefix}/${href}`}
+          >
+            {label}
+          </Nav.Link>
+        ))}
+      </Nav>
+      <div className="vr"></div>
+    </section>
+  );
+};

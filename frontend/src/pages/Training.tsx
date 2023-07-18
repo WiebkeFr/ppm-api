@@ -5,9 +5,10 @@ const TRAINING_ERROR =
   "An error occurred while training!\nPlease make sure you uploaded a correct dataset and chose a valid selection of model-type and encodings.";
 const EVALUATION_ERROR =
   '<div class="alert alert-danger d-inline-block mt-3" role="alert">error occurred while training</div>';
-const EXPLANATION = "Explanation of confusion matrix"
+const EXPLANATION = "Explanation of confusion matrix";
 
 export const Training = () => {
+  const prefix = process.env.REACT_APP_PREFIX;
   const [confusionMatrix, setConfusionMatrix] = useState("");
   const [trainingHistory, setTrainingHistory] = useState("");
   const [report, setReport] = useState({});
@@ -20,7 +21,7 @@ export const Training = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       axios
-        .get("api/train/training-progress")
+        .get(prefix + "/api/train/training-progress")
         .then((res) => {
           console.log(res.data);
           if (
@@ -50,11 +51,11 @@ export const Training = () => {
           console.log(error);
         });
     }, 1000);
-  }, []);
+  });
 
   const getTrainingData = () => {
     axios
-      .get("api/evaluate/confusion-matrix")
+      .get(prefix + "/api/evaluate/confusion-matrix")
       .then((res) => {
         setConfusionMatrix(res.data);
       })
@@ -63,7 +64,7 @@ export const Training = () => {
       });
 
     axios
-      .get("api/evaluate/training-history")
+      .get(prefix + "/api/evaluate/training-history")
       .then((res) => {
         setTrainingHistory(res.data);
       })
@@ -72,7 +73,7 @@ export const Training = () => {
       });
 
     axios
-      .get("api/evaluate/classification-report")
+      .get(prefix + "/api/evaluate/classification-report")
       .then((res) => {
         setReport(res.data);
       })

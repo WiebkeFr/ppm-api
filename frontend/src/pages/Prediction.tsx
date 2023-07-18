@@ -1,9 +1,10 @@
-import React, {ChangeEvent, useState} from "react";
+import React, { ChangeEvent, useState } from "react";
 import axios from "axios";
 
 export const Prediction = () => {
-      const [file, setFile] = useState<File>();
-        const [progress, setProgress] = useState(0);
+  const prefix = process.env.REACT_APP_PREFIX;
+  const [file, setFile] = useState<File>();
+  const [progress, setProgress] = useState(0);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (progress === -1) {
@@ -21,7 +22,7 @@ export const Prediction = () => {
     formData.append("file", file);
 
     axios
-      .post("/api/predict", formData, {
+      .post(prefix + "/api/predict", formData, {
         onUploadProgress: (progressEvent) => {
           if (progressEvent.total) {
             const progress = (progressEvent.loaded / progressEvent.total) * 100;
@@ -62,23 +63,23 @@ export const Prediction = () => {
         </button>
       </div>
       <div className="d-flex my-3 align-items-center">
-          <h4 className="my-2">Upload Progress:</h4>
-          <div className="progress w-50 ms-3">
-            <div
-              className={
-                "progress-bar progress-bar-striped" +
-                (progress === 100 ? "" : " progress-bar-animated")
-              }
-              role="progressbar"
-              style={{ width: progress + "%" }}
-              aria-valuenow={Math.round(progress)}
-              aria-valuemin={0}
-              aria-valuemax={100}
-            >
-              {Math.round(progress)}%
-            </div>
+        <h4 className="my-2">Upload Progress:</h4>
+        <div className="progress w-50 ms-3">
+          <div
+            className={
+              "progress-bar progress-bar-striped" +
+              (progress === 100 ? "" : " progress-bar-animated")
+            }
+            role="progressbar"
+            style={{ width: progress + "%" }}
+            aria-valuenow={Math.round(progress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          >
+            {Math.round(progress)}%
           </div>
         </div>
+      </div>
     </div>
   );
 };
