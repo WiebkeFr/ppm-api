@@ -6,7 +6,6 @@ from starlette.requests import Request
 import os
 
 from starlette.responses import FileResponse
-
 from evaluate_dataset.evaluate_dataset import event_log_assessment
 
 router = APIRouter()

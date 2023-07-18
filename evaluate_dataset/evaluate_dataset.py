@@ -1,15 +1,10 @@
 from time import time
 import os
-# from complexity import *
-# from implement_measures import *
-import pm4py
 
 from evaluate_dataset.complexity import measure_lempel_ziv, measure_deviation_from_random, generate_pm4py_log, \
     generate_log, measure_affinity, measure_trace_length, aux_event_classes, measure_support, measure_magnitude, \
     measure_distinct_traces, measure_structure, measure_level_of_detail, measure_variety, build_graph, \
     measure_pentland_task
-from evaluate_dataset.implement_measures import total_number_of_events, total_number_of_event_classes, \
-    total_number_of_traces, minimum_trace_length, maximum_trace_length, average_trace_size
 
 
 def event_log_assessment(id):
@@ -70,7 +65,6 @@ def event_log_assessment(id):
     measures['t_div'] = measure_pentland_task(pa)
 
     # GRAPH: Trace Entropy
-
 
     end_time = time()
     measures['time'] = end_time - start_time
