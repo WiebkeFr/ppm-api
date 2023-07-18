@@ -1,5 +1,6 @@
 import os
 
+import click as click
 import numpy as np
 import pandas as pd
 import uvicorn
@@ -9,7 +10,7 @@ from starlette.requests import Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from routers import upload, evaluate, train
+from routers import upload, evaluate, train, frontend
 
 tags_metadata = [
     {
@@ -44,64 +45,35 @@ app = FastAPI(
     openapi_tags=tags_metadata
 )
 
+port = os.environ["PORT"] if os.environ["PORT"] else "9999"
+base_path = f"/ports/{port}"
+
+print(base_path)
+
 app.include_router(upload.router,
-                   prefix="/api/upload",
+                   prefix=base_path + "/api/upload",
                    tags=["API – Upload"])
 
 app.include_router(evaluate.router,
-                   prefix="/api/evaluate",
+                   prefix=base_path + "/api/evaluate",
                    tags=["API – Evaluation"])
 
 app.include_router(train.router,
-                   prefix="/api/train",
+                   prefix=base_path + "/api/train",
                    tags=["API – Training"])
 
 app.include_router(train.router,
-                   prefix="/api/predict",
+                   prefix=base_path + "/api/predict",
                    tags=["API – Prediction"])
+
+app.include_router(frontend.router,
+                   prefix=base_path,
+                   tags=["API – Frontend"])
 
 @app.get("/test", tags=["API – Organization"])
 async def get_training_history_image(request: Request):
-    model_id = request.cookies.get('ppm-api').split(".")[0]
+    return {"state": "success"}
 
-    plt.close()
-    result_path = f"data/results/{model_id}_history.svg"
-    history_path = f'data/training/{model_id}.csv'
-
-    if not os.path.isfile(history_path):
-        return
-
-    df = pd.read_csv(history_path)
-
-    print(df)
-
-    labels = np.unique(df["Criterion"])
-    ind = ind = np.arange(len(labels))
-
-    columns = ['Accuracy', 'Precision', 'Recall']
-    colors = ['blue', 'orange', 'green']
-    width = 0.22
-
-    fig, ax = plt.subplots()
-    ax.set_xticks(ind + width, labels=labels)
-
-    for index, (column, color) in enumerate(zip(columns, colors)):
-        df_grouped = (
-            df[['Criterion', column]].groupby(['Criterion'])
-            .agg(['mean', 'std'])
-        )
-        df_grouped = df_grouped.droplevel(axis=1, level=0).reset_index()
-        ax.bar(ind + index * width, df_grouped["mean"], width, yerr=df_grouped["std"], label=column)
-
-    title = "Evaluation  of model in each criterion"
-    plt.title(title, fontsize=13)
-    plt.xlabel('Criterion', fontsize=12)
-    plt.ylabel('Accuracy', fontsize=12)
-    plt.ylim(top=1.05)
-    plt.grid(axis='y')
-    plt.legend(loc='lower right')
-    plt.savefig(result_path)
-    plt.close()
 
 @app.delete("/api/delete/{dir}", tags=["API – Organization"])
 async def delete_files_in_directory(dir: str):
@@ -114,20 +86,15 @@ async def delete_files_in_directory(dir: str):
     else:
         return {"status": "provided directory does not exist"}
 
-app.mount("/static", StaticFiles(directory="frontend/build/static"), name="static")
-app.mount("/public", StaticFiles(directory="frontend/public"), name="build")
-templates = Jinja2Templates(directory="frontend/build")
+app.mount(base_path + "/static", StaticFiles(directory="frontend/build/static"), name="static")
+app.mount(base_path + "/public", StaticFiles(directory="frontend/public"), name="build")
 
-
-@app.get("/", response_class=HTMLResponse, tags=["Frontend"])
-@app.get("/selection", response_class=HTMLResponse, tags=["Frontend"])
-@app.get("/training", response_class=HTMLResponse, tags=["Frontend"])
-@app.get("/prediction", response_class=HTMLResponse, tags=["Frontend"])
-@app.get("/information", response_class=HTMLResponse, tags=["Frontend"])
-def show_selected_page(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+@click.command()
+@click.option('-p', '--port', type=click.IntRange(min=9000, max=10000), default=9999, help='The port on which the webservice is running')
+def main(port):
+    os.environ["PORT"] = str(port)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, root_path=f"/ports/9999", reload=True)
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-
+    main()
