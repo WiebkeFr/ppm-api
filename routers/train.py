@@ -1,3 +1,4 @@
+from __future__ import annotations
 import os
 
 import pandas as pd
@@ -11,7 +12,7 @@ from train_model.dtree import DT_Model
 from train_model.lstm import LSTM_Model, EPOCH_SIZE
 from train_model.model import PPM_Model
 from train_model.utils import log_state
-from typing import Literal
+from typing import Literal, Union
 
 router = APIRouter()
 
@@ -44,7 +45,7 @@ def start_background_training(file_name: str, model_info: Model_Info):
 
 @router.post("")
 async def train_model(request: Request, model_info: Model_Info, background_tasks: BackgroundTasks,
-                      overwrite: str | None = None):
+                      overwrite: Union[str | None] = None):
     print(model_info)
     id = request.cookies.get('ppm-api').split(".")[0]
     print(model_info)
