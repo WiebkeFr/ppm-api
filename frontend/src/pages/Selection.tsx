@@ -56,7 +56,7 @@ export const Selection = () => {
         setShowModal(true);
       }
       if (res.data.state === "success") {
-        navigate(prefix + "/training");
+        navigate("/training");
       }
     });
   };

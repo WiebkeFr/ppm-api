@@ -45,10 +45,6 @@ app = FastAPI(
     openapi_tags=tags_metadata
 )
 
-port = os.environ["PORT"] if os.environ["PORT"] else "9999"
-base_path = f"/ports/{port}"
-
-print(base_path)
 
 app.include_router(upload.router,
                    prefix="/api/upload",
@@ -70,7 +66,7 @@ app.include_router(frontend.router,
                    tags=["API – Frontend"])
 
 @app.get("/test", tags=["API – Organization"])
-async def get_training_history_image(request: Request):
+async def test(request: Request):
     return {"state": "success"}
 
 
