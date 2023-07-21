@@ -9,8 +9,8 @@ from starlette.responses import JSONResponse
 
 from train_model.cnn import CNN_Model
 from train_model.dtree import DT_Model
-from train_model.lstm import LSTM_Model, EPOCH_SIZE
-from train_model.model import PPM_Model
+from train_model.lstm import LSTM_Model
+from train_model.model import PPM_Model, EPOCH_SIZE
 from train_model.utils import log_state
 from typing import Literal, Union
 
@@ -23,7 +23,7 @@ class Model_Info(BaseModel):
     event_enc: Literal['ONEHOT', 'EMBEDDED', 'FREQBASED']
 
 
-def start_background_training(file_name: str, model_info: Model_Info):
+def start_training(file_name: str, model_info: Model_Info, additional_evaluation: bool):
     model = PPM_Model("", "", "DEFAULT")
 
     if model_info.type == 'LSTM':
@@ -36,7 +36,9 @@ def start_background_training(file_name: str, model_info: Model_Info):
     model_id = file_name.split(".")[0]
     progress_path = f"data/training/{model_id}.txt"
     log_state(progress_path, "TRAIN")
-    model.train()
+    training_result = model.train(evaluate=additional_evaluation)
+    if additional_evaluation:
+        return training_result
     log_state(progress_path, "EVALUATE")
     model.evaluate_test_prediction()
     model.evaluate_history()
@@ -45,14 +47,13 @@ def start_background_training(file_name: str, model_info: Model_Info):
 
 @router.post("")
 async def train_model(request: Request, model_info: Model_Info, background_tasks: BackgroundTasks,
-                      overwrite: Union[str , None] = None):
+                      overwrite: Union[str, None] = None):
     print(model_info)
     id = request.cookies.get('ppm-api').split(".")[0]
-    print(model_info)
     training_path = f"data/training/{id}.csv"
     if os.path.isfile(training_path) and overwrite != "true":
         return {"state": "warning-duplicate"}
-    background_tasks.add_task(start_background_training, request.cookies.get('ppm-api'), model_info)
+    background_tasks.add_task(start_training, request.cookies.get('ppm-api'), model_info, False)
     return {"state": "success"}
 
 
@@ -83,4 +84,3 @@ async def get_training_progress(request: Request):
         return JSONResponse({"state": "training", "progress": "0"})
 
     return JSONResponse({"state": "error", "progress": "-1"})
-

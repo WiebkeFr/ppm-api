@@ -32,7 +32,14 @@ class DT_Model(PPM_Model):
             samples, nx, ny = self.X_test.shape
             self.X_test = self.X_test.reshape((samples, nx * ny))
 
-    def train(self):
+    def train(self, evaluate: bool):
+        """
+            - Training of Decision Tree
+            - Saves best model in '/data/models/{id}_{accuracy}.keras'
+
+        Args:
+            evaluate (bool): shows whether all trees are evaluated after training
+        """
         id = self.path.split('.')[0]
         training_path = f"data/training/{id}.csv"
         skf = StratifiedKFold(n_splits=6, shuffle=True)
@@ -48,17 +55,19 @@ class DT_Model(PPM_Model):
                 accuracy = metrics.accuracy_score(self.Y_train[validate_index], Y_pred)
                 precision = metrics.precision_score(self.Y_train[validate_index], Y_pred, average="weighted", zero_division=0.0)
                 recall = metrics.recall_score(self.Y_train[validate_index], Y_pred, average="weighted", zero_division=0.0)
+                f1 = metrics.f1_score(self.Y_train[validate_index], Y_pred, average='weighted', zero_division=0.0)
 
                 model_path = f"data/models/{id}_{round(accuracy, 2)}.sav"
                 pickle.dump(clf, open(model_path, 'wb'))
-                data.append([f"Fold {i}", cr, accuracy, precision, recall])
+                data.append([f"Fold {i}", cr, accuracy, precision, recall, f1])
 
         with open(training_path, "a") as stream:
             writer = csv.writer(stream)
-            writer.writerow(["Fold", "Criterion", "Accuracy", "Precision", "Recall"])
+            writer.writerow(["Fold", "Criterion", "Accuracy", "Precision", "Recall", "F1"])
             writer.writerows(data)
 
         remove_lower_accuracies(id, "sav")
+        return data
 
     def evaluate_history(self):
         """

@@ -1,8 +1,4 @@
 import os
-
-import click as click
-import numpy as np
-import pandas as pd
 import uvicorn
 from fastapi import FastAPI
 from matplotlib import pyplot as plt
@@ -10,7 +6,7 @@ from starlette.requests import Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from routers import upload, evaluate, train, frontend
+from routers import upload, evaluate, train, frontend, internal
 
 tags_metadata = [
     {
@@ -33,6 +29,10 @@ tags_metadata = [
         "name": "Frontend",
         "description": "Pages to visualize the API routes",
     },
+    {
+        "name": "Internal",
+        "description": "Internal routes to create multiple model for the bachelors thesis",
+    },
 ]
 
 app = FastAPI(
@@ -44,7 +44,6 @@ app = FastAPI(
     },
     openapi_tags=tags_metadata
 )
-
 
 app.include_router(upload.router,
                    prefix="/api/upload",
@@ -63,7 +62,12 @@ app.include_router(train.router,
                    tags=["API – Prediction"])
 
 app.include_router(frontend.router,
-                   tags=["API – Frontend"])
+                   tags=["Frontend"])
+
+app.include_router(internal.router,
+                   prefix="/internal",
+                   tags=["Internal"])
+
 
 @app.get("/test", tags=["API – Organization"])
 async def test(request: Request):

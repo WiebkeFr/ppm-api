@@ -1,14 +1,8 @@
 from keras.optimizers import Adam
-from sklearn.model_selection import StratifiedKFold
-
 from train_model.model import PPM_Model
 from keras.models import Sequential
 from keras.layers import MaxPooling1D, Conv1D, Dense, Flatten, ReLU, BatchNormalization
-from train_model.utils import early_stopping, log_model, lr_reducer, log_epoch, log_history, remove_lower_accuracies
 import numpy as np
-
-BATCH_SIZE = 20
-EPOCH_SIZE = 100
 
 
 class CNN_Model(PPM_Model):
@@ -45,27 +39,3 @@ class CNN_Model(PPM_Model):
         model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
         self.model = model
         self.model.summary()
-
-    def train(self):
-        """
-            - Training of CNN-Model
-            - Saves best model in '/data/models/{id}_{accuracy}.keras'
-        """
-        model_id = self.path.split('.')[0]
-        model_path = f"data/models/{model_id}_" + '{val_accuracy:.2f}.keras'
-        training_path = f"data/training/{model_id}.csv"
-        progress_path = f"data/training/{model_id}.txt"
-
-        skf = StratifiedKFold(n_splits=6, shuffle=True)
-
-        for i, (train_index, validate_index) in enumerate(skf.split(self.X_train, self.Y_train.argmax(1))):
-            print(f"Fold {i}:")
-            self.create()
-            self.model.fit(self.X_train[train_index], self.Y_train[train_index], batch_size=BATCH_SIZE, epochs=EPOCH_SIZE,
-                                validation_data=(self.X_train[validate_index], self.Y_train[validate_index]),
-                      callbacks=[early_stopping, log_model(model_path), lr_reducer, log_history(training_path),
-                                 log_epoch(progress_path)]
-                      )
-
-        remove_lower_accuracies(model_id, "keras")
-

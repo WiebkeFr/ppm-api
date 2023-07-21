@@ -3,22 +3,24 @@ import os
 import pickle
 from os import listdir
 from os.path import isfile, join
-
 import pandas as pd
 from keras.utils import to_categorical
 from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 import matplotlib
-
 from matplotlib import pyplot as plt
 import numpy as np
 import pm4py
 from sklearn.model_selection import train_test_split
 from keras.models import load_model
-
 from evaluate_dataset.complexity import generate_pm4py_log
 from train_model.utils import embedded_encoding, one_hot_enc, extract_labels
+from sklearn.model_selection import StratifiedKFold
+from train_model.utils import early_stopping, log_model, lr_reducer, log_epoch, log_history, remove_lower_accuracies
+from sklearn import metrics
 
 matplotlib.use('agg')
+
+EPOCH_SIZE = 100
 
 
 class PPM_Model:
@@ -50,8 +52,7 @@ class PPM_Model:
         self.log = pd.read_csv(log_path) if path.split(".")[-1] == "csv" else pm4py.read_xes(log_path)
         if path.split(".")[-1] == "csv":
             self.log.rename(columns={self.log.columns[0]: 'case:concept:name', self.log.columns[1]: 'concept:name',
-                                    self.log.columns[2]: 'time:timestamp'}, inplace=True)
-        print(self.log[:5])
+                                     self.log.columns[2]: 'time:timestamp'}, inplace=True)
         if self.log.dtypes["case:concept:name"] != "str":
             self.log["case"] = self.log["case:concept:name"].apply(str)
         if self.log.dtypes["concept:name"] != "str":
@@ -93,12 +94,42 @@ class PPM_Model:
         """
         raise Exception("No type of model is provided")
 
+    def train(self, evaluate: bool):
+        """
+            - Training of LSTM- or CNN-Model
+            - Saves best model in '/data/models/{id}_{accuracy}.keras'
 
-    def train(self):
+        Args:
+            evaluate (bool): shows whether all epochs are evaluated after training
         """
-            Default function which needs to be replaced
-        """
-        raise Exception("No type of model is provided")
+        model_id = self.path.split('.')[0]
+        training_path = f"data/training/{model_id}.csv"
+        progress_path = f"data/training/{model_id}.txt"
+        model_path = f"data/models/{model_id}_" + '{val_accuracy:.2f}.keras'
+        scores = []
+        skf = StratifiedKFold(n_splits=6, shuffle=True)
+
+        for i, (train_index, validate_index) in enumerate(skf.split(self.X_train, self.Y_train.argmax(1))):
+            print(f"Fold {i}:")
+            self.create()
+            self.model.fit(self.X_train[train_index], self.Y_train[train_index], batch_size=self.BATCH_SIZE,
+                           epochs=EPOCH_SIZE,
+                           validation_data=(self.X_train[validate_index], self.Y_train[validate_index]),
+                           callbacks=[early_stopping, log_model(model_path), lr_reducer, log_history(training_path),
+                                      log_epoch(progress_path)])
+            if evaluate:
+                y_pred = self.model.predict(self.X_test, verbose=0)
+                Y_pred = np.argmax(y_pred, axis=1)
+
+                accuracy = metrics.accuracy_score(self.Y_test, Y_pred)
+                precision = metrics.precision_score(self.Y_test, Y_pred, average="weighted", zero_division=0.0)
+                recall = metrics.recall_score(self.Y_test, Y_pred, average="weighted", zero_division=0.0)
+                f1 = metrics.f1_score(self.Y_test, Y_pred, average='weighted', zero_division=0.0)
+
+                scores.append([accuracy, precision, recall, f1])
+
+        remove_lower_accuracies(model_id, "keras")
+        return scores
 
     def evaluate_test_prediction(self):
         """
@@ -115,8 +146,6 @@ class PPM_Model:
 
         file_name = [f for f in listdir("data/models/") if isfile(join("data/models/", f)) and (model_id in f)][0]
         model_path = f"data/models/{file_name}"
-        print(self.X_test.shape[1:])
-
 
         if self.type == "DT":
             model = pickle.load(open(model_path, 'rb'))
