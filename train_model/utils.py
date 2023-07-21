@@ -123,7 +123,7 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         return x['concept:name'].tolist()
 
     trace_df = log.groupby('case:concept:name', group_keys=False).apply(
-        lambda x: drop_unfinished_events(x)) \
+        lambda x: collect_events(x)) \
         .reset_index().drop(['index', 'case:concept:name'], axis=1, errors='ignore')
     X = []
     Y = []
