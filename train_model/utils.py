@@ -90,7 +90,7 @@ def embedded_encoding(log):
     unique_events = np.unique(all_events.values)
     traces = log.groupby('case:concept:name', group_keys=False).apply(
         lambda x: x.sort_values(by=["time:timestamp"])['concept:name']
-            .tolist()).reset_index().drop(['case:concept:name'], axis=1, errors='ignore')
+        .tolist()).reset_index().drop(['case:concept:name'], axis=1, errors='ignore')
     model = Word2Vec(sentences=traces[0].tolist(), vector_size=len(unique_events), window=3, min_count=1, workers=4)
     model.train([unique_events.tolist()], total_examples=1, epochs=1)
     event_encoding_dic = {}
@@ -98,29 +98,6 @@ def embedded_encoding(log):
         event_encoding_dic[case] = list(map(lambda x: np.float64(x), list(model.wv[case])))
     return event_encoding_dic
 
-
-def frequ_based_encoding(log):
-    """
-    Returns a dictionary to encode event-names using CountVectorizer
-
-    Args:
-        log (DataFrame): Dataframe of events (rows) of a process log with the following columns
-                            'concept:name': name of event
-                            'case:concept:name': trace/case of event
-                            'time:timestamp': timestamp of event
-
-    Returns:
-        event_encoding_dic (Dictionary):
-            Dictionary to map event-names on array of numbers (length equals number of events)
-    """
-
-    all_events = log["concept:name"]
-    unique_events = np.unique(all_events.values)
-
-    vectorizer = CountVectorizer(
-        vocabulary=['and', 'document', 'first', 'is', 'one', 'second', 'the', 'third', 'this', 'con in']
-        )
-    return vectorizer
 
 def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
     """
@@ -140,10 +117,10 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         Y (Array): Array of encoded labels
     """
 
-    def drop_unfinished_events(x):
-        if "lifecycle:transition" in x:
-            x = x[x["lifecycle:transition"] == "complete"]
-        return x.sort_values(by=["time:timestamp"])['concept:name'].tolist()
+    def collect_events(x):
+        if "time:timestamp" in x:
+            return x.sort_values(by=["time:timestamp"])['concept:name'].tolist()
+        return x['concept:name'].tolist()
 
     trace_df = log.groupby('case:concept:name', group_keys=False).apply(
         lambda x: drop_unfinished_events(x)) \
@@ -170,7 +147,9 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         all_events = log["concept:name"]
         unique_events = np.unique(all_events.values)
         lens = [len(x.split()) for x in unique_events]
-        vectorizer = CountVectorizer(vocabulary=unique_events, preprocessor=lambda x: x, token_pattern = '[a-zA-Z0-9$&+,:;=?@#|<>.^*()%!-]+', lowercase=False, ngram_range=(1, max(lens)))
+        vectorizer = CountVectorizer(vocabulary=unique_events, preprocessor=lambda x: x,
+                                     token_pattern='[a-zA-Z0-9$&+,:;=?@#|<>.^*()%!-]+', lowercase=False,
+                                     ngram_range=(1, max(lens)))
         print(corpus[:5])
         X = vectorizer.fit_transform(corpus).toarray()
         print(X[:5])

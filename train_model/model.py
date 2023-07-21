@@ -54,7 +54,7 @@ class PPM_Model:
             self.log.rename(columns={self.log.columns[0]: 'case:concept:name', self.log.columns[1]: 'concept:name',
                                      self.log.columns[2]: 'time:timestamp'}, inplace=True)
         if self.log.dtypes["case:concept:name"] != "str":
-            self.log["case"] = self.log["case:concept:name"].apply(str)
+            self.log["case:concept:name"] = self.log["case:concept:name"].apply(str)
         if self.log.dtypes["concept:name"] != "str":
             self.log["concept:name"] = self.log["concept:name"].apply(str)
 
