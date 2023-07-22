@@ -88,10 +88,7 @@ async def delete_files_in_directory(dir: str):
 app.mount("/static", StaticFiles(directory="frontend/build/static"), name="static")
 app.mount("/public", StaticFiles(directory="frontend/public"), name="build")
 
-@click.command()
-@click.option('-p', '--port', type=click.IntRange(min=9000, max=10000), default=9999, help='The port on which the webservice is running')
-def main(port):
-    os.environ["PORT"] = str(port)
+def main():
     uvicorn.run("main:app", host="::1", port=9999, root_path=f"/ports/9999", reload=True)
 
 
