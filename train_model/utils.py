@@ -1,10 +1,8 @@
 import json
 import os
 from os.path import isfile, join
-
 import numpy as np
 from keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, CSVLogger, LambdaCallback
-
 from gensim.models import Word2Vec
 from keras.utils import pad_sequences
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
@@ -172,10 +170,17 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
 # HELPER FUNCTIONS
 #
 def remove_lower_accuracies(id, ending):
+    """
+    Deletes all model-files which do not score the maximal accuracy
+    -> only the best model is kept
+
+    Args:
+        id (String): id of model
+        ending (String): file type of the model (keras or sav)
+    """
     file_names = [f for f in os.listdir("data/models/") if isfile(join("data/models/", f)) and (id in f)]
     model_accuracies = [file_name.split("_")[-1].rsplit(".", 1)[0] for file_name in file_names]
     max_accuracy = max(list(model_accuracies), default=0)
-    print(max_accuracy)
 
     for f in file_names:
         if not (f == f"{id}_{str(max_accuracy)}.{ending}"):
@@ -183,7 +188,17 @@ def remove_lower_accuracies(id, ending):
             os.remove(f"data/models/{f}")
 
 
-def collect_events(x):
-    if "time:timestamp" in x:
-        return x.sort_values(by=["time:timestamp"])['concept:name'].tolist()
-    return x['concept:name'].tolist()
+def collect_events(trace):
+    """
+    Generates a list of events based on the given trace
+
+    Args:
+        trace (DataFrame):  Dataframe of events with the columns
+                            'concept:name': name of event
+                            'time:timestamp': timestamp of event (optional)
+    Returns:
+        x (list): list of event-names
+    """
+    if "time:timestamp" in trace:
+        return trace.sort_values(by=["time:timestamp"])['concept:name'].tolist()
+    return trace['concept:name'].tolist()
