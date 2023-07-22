@@ -1,7 +1,7 @@
 import csv
 import os
 import pickle
-
+from time import time
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -20,7 +20,6 @@ class DT_Model(PPM_Model):
     def __init__(self, sequ: str, event: str, path: str):
         super().__init__(sequ, event, path)
         self.type = "DT"
-
 
     def create(self):
         """
@@ -48,8 +47,10 @@ class DT_Model(PPM_Model):
         data = []
         for i, (train_index, validate_index) in enumerate(skf.split(self.X_train, self.Y_train.argmax(1))):
             for cr in ['gini', 'entropy', 'log_loss']:
+                start_time = time()
                 clf = DecisionTreeClassifier(criterion=cr)
                 clf = clf.fit(self.X_train[train_index], self.Y_train[train_index])
+                end_time = time()
 
                 Y_pred = clf.predict(self.X_train[validate_index])
                 accuracy = metrics.accuracy_score(self.Y_train[validate_index], Y_pred)
@@ -59,11 +60,11 @@ class DT_Model(PPM_Model):
 
                 model_path = f"data/models/{id}_{round(accuracy, 2)}.sav"
                 pickle.dump(clf, open(model_path, 'wb'))
-                data.append([f"Fold {i}", cr, accuracy, precision, recall, f1])
+                data.append([f"Fold {i}", cr, accuracy, precision, recall, f1, end_time - start_time])
 
         with open(training_path, "a") as stream:
             writer = csv.writer(stream)
-            writer.writerow(["Fold", "Criterion", "Accuracy", "Precision", "Recall", "F1"])
+            writer.writerow(["Fold", "Criterion", "Accuracy", "Precision", "Recall", "F1", "Time"])
             writer.writerows(data)
 
         remove_lower_accuracies(id, "sav")

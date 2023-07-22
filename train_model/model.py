@@ -1,6 +1,7 @@
 import json
 import os
 import pickle
+from time import time
 from os import listdir
 from os.path import isfile, join
 import pandas as pd
@@ -107,12 +108,15 @@ class PPM_Model:
 
         for i, (train_index, validate_index) in enumerate(skf.split(self.X_train, self.Y_train.argmax(1))):
             print(f"Fold {i}:")
+            start_time = time()
             self.create()
             self.model.fit(self.X_train[train_index], self.Y_train[train_index], batch_size=self.BATCH_SIZE,
                            epochs=EPOCH_SIZE,
                            validation_data=(self.X_train[validate_index], self.Y_train[validate_index]),
                            callbacks=[early_stopping, log_model(model_path), lr_reducer, log_history(training_path),
                                       log_epoch(progress_path)])
+            end_time = time()
+
             if evaluate:
                 y_pred = self.model.predict(self.X_test, verbose=0)
                 Y_pred = np.argmax(y_pred, axis=1)
@@ -122,7 +126,7 @@ class PPM_Model:
                 recall = metrics.recall_score(self.Y_test, Y_pred, average="weighted", zero_division=0.0)
                 f1 = metrics.f1_score(self.Y_test, Y_pred, average='weighted', zero_division=0.0)
 
-                scores.append([accuracy, precision, recall, f1])
+                scores.append([accuracy, precision, recall, f1, end_time - start_time])
 
         remove_lower_accuracies(model_id, "keras")
         return scores

@@ -12,11 +12,9 @@ from dateutil import rrule
 from dateutil.relativedelta import relativedelta
 import calendar
 from lempel_ziv_complexity import lempel_ziv_complexity, lempel_ziv_decomposition # pip install lempel_ziv_complexity
-import time
 from BitVector import BitVector
 import matplotlib.pyplot as plt
 import functools
-from itertools import count
 
 # Classes
 class Event:

@@ -138,7 +138,7 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         unique_events = np.unique(all_events.values)
         lens = [len(x.split()) for x in unique_events]
         vectorizer = CountVectorizer(vocabulary=unique_events, preprocessor=lambda x: x,
-                                     token_pattern='[a-zA-Z0-9$&+,:;=?@#|<>.^*()%!-]+', lowercase=False,
+                                     token_pattern='[a-zA-Z0-9$&+,:;=?@#|<>._^*()%!-]+', lowercase=False,
                                      ngram_range=(1, max(lens)))
         print(corpus[:5])
         X = vectorizer.fit_transform(corpus).toarray()
