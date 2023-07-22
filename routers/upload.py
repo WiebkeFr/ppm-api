@@ -1,17 +1,16 @@
 import pandas as pd
 import csv
 import os.path
-
 from starlette.requests import Request
 import xmltodict
 import json
 from fastapi import APIRouter, Response, BackgroundTasks
 import uuid
+import pm4py
 from typing import Optional
 from fastapi import Form, File, UploadFile
 from pydantic import BaseModel
 from helper.process_uploads import process_csv, process_xes
-
 from utils.subscriptions import add_subscription
 from utils.run_events import start_shell_script
 
@@ -27,14 +26,13 @@ class Info(BaseModel):
 
 
 def remove_starting_event(filename: str):
-    import pm4py
     filepath = os.path.join(os.curdir, "data", "logs", filename)
     log = pm4py.read_xes(filepath)
     if "lifecycle:transition" in log:
         x = log[(log["lifecycle:transition"] == "complete") | (log["lifecycle:transition"] == "COMPLETE")]
         print(x[:3])
         print(x.columns)
-        pm4py.write_xes(x, filepath)
+        pm4py.write_xes(x[["concept:name", "time:timestamp", "case:concept:name"]], filepath)
 
 
 @router.post("/event-logs")

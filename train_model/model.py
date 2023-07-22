@@ -58,9 +58,6 @@ class PPM_Model:
         if self.log.dtypes["concept:name"] != "str":
             self.log["concept:name"] = self.log["concept:name"].apply(str)
 
-        pm4py_log = generate_pm4py_log(log_path)
-        self.max_length = max([len(trace) for trace in pm4py_log])
-
         # Prepare event encoding
         all_events = self.log["concept:name"]
         self.unique_events = np.unique(all_events.values)
@@ -76,7 +73,6 @@ class PPM_Model:
 
         dic_path = os.path.join(os.curdir, "data", "encodings", path.split('.')[0] + '.json')
         with open(dic_path, "w") as outfile:
-            print(self.event_encoding_dic)
             json.dump(self.event_encoding_dic, outfile)
 
         # Preprocess data
@@ -225,7 +221,7 @@ class PPM_Model:
         plt.title(title, fontsize=13)
         plt.xlabel('Epoch', fontsize=12)
         plt.ylabel("Accuracy", fontsize=12)
-        plt.ylim(top=1.05)
+        plt.ylim(bottom=0, top=1.05)
         plt.grid(True)
         plt.legend(loc='lower right')
         plt.savefig(result_path)

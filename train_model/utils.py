@@ -88,9 +88,8 @@ def embedded_encoding(log):
     """
     all_events = log["concept:name"]
     unique_events = np.unique(all_events.values)
-    traces = log.groupby('case:concept:name', group_keys=False).apply(
-        lambda x: x.sort_values(by=["time:timestamp"])['concept:name']
-        .tolist()).reset_index().drop(['case:concept:name'], axis=1, errors='ignore')
+    traces = log.groupby('case:concept:name', group_keys=False).apply(collect_events)\
+        .reset_index().drop(['case:concept:name'], axis=1, errors='ignore')
     model = Word2Vec(sentences=traces[0].tolist(), vector_size=len(unique_events), window=3, min_count=1, workers=4)
     model.train([unique_events.tolist()], total_examples=1, epochs=1)
     event_encoding_dic = {}
@@ -116,14 +115,7 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         X (Array): Array of encoded traces
         Y (Array): Array of encoded labels
     """
-
-    def collect_events(x):
-        if "time:timestamp" in x:
-            return x.sort_values(by=["time:timestamp"])['concept:name'].tolist()
-        return x['concept:name'].tolist()
-
-    trace_df = log.groupby('case:concept:name', group_keys=False).apply(
-        lambda x: collect_events(x)) \
+    trace_df = log.groupby('case:concept:name', group_keys=False).apply(collect_events) \
         .reset_index().drop(['index', 'case:concept:name'], axis=1, errors='ignore')
     X = []
     Y = []
@@ -176,6 +168,9 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
     return X, Y
 
 
+#
+# HELPER FUNCTIONS
+#
 def remove_lower_accuracies(id, ending):
     file_names = [f for f in os.listdir("data/models/") if isfile(join("data/models/", f)) and (id in f)]
     model_accuracies = [file_name.split("_")[-1].rsplit(".", 1)[0] for file_name in file_names]
@@ -186,3 +181,9 @@ def remove_lower_accuracies(id, ending):
         if not (f == f"{id}_{str(max_accuracy)}.{ending}"):
             print(f"remove {f}")
             os.remove(f"data/models/{f}")
+
+
+def collect_events(x):
+    if "time:timestamp" in x:
+        return x.sort_values(by=["time:timestamp"])['concept:name'].tolist()
+    return x['concept:name'].tolist()
