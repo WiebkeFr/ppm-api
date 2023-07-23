@@ -10,7 +10,7 @@ class CNN_Model(PPM_Model):
         super().__init__(sequ, event, path)
         self.model = None
         self.type = "CNN"
-        self.BATCH_SIZE = len(self.unique_events)
+        self.BATCH_SIZE = min(len(self.unique_events), 15)
 
     def create(self):
         """
