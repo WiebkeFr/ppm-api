@@ -22,6 +22,7 @@ def train_all_models(request: Request):
         print(model_info)
         training_result = start_training(file_name, model_info, True)
         all_results[f"{t}_{s}_{e}"] = training_result
+        print(training_result)
 
     print(all_results)
     return all_results

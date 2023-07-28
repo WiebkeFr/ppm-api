@@ -107,7 +107,8 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
                             'time:timestamp': timestamp of event
         event_encoding_dic (Dictionary): Dictionary to encode event-names (key) to pre-determined array of numbers
         sequ_enc (String): Type of sequence encoding ('PREPAD' or 'CONT')
-        event_enc (String) Type of event encoding ('ONEHOT' or 'EMBEDDED' or 'FREQBASED')
+        event_enc (String): Type of event encoding ('ONEHOT' or 'EMBEDDED' or 'FREQBASED')
+        path (String): filename of log consisting of "{model_id}.{file_type}"
 
     Returns:
         X (Array): Array of encoded traces

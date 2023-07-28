@@ -5,13 +5,13 @@ from fastapi.responses import HTMLResponse
 from starlette.requests import Request
 from fastapi.templating import Jinja2Templates
 
-
 router = APIRouter()
 
 templates = Jinja2Templates(directory="frontend/build")
 
 port = os.environ["PORT"] if os.environ["PORT"] else "9998"
 base_path = f"/ports/{port}"
+
 
 @router.get("/", response_class=HTMLResponse)
 @router.get("/selection", response_class=HTMLResponse)
