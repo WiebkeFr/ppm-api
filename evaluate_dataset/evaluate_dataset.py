@@ -4,7 +4,7 @@ import os
 from evaluate_dataset.complexity import measure_lempel_ziv, measure_deviation_from_random, generate_pm4py_log, \
     generate_log, measure_affinity, measure_trace_length, aux_event_classes, measure_support, measure_magnitude, \
     measure_distinct_traces, measure_structure, measure_level_of_detail, measure_variety, build_graph, \
-    measure_pentland_task
+    measure_pentland_task, graph_complexity, log_complexity
 
 
 def event_log_assessment(id):
@@ -65,6 +65,13 @@ def event_log_assessment(id):
     measures['t_div'] = measure_pentland_task(pa)
 
     # GRAPH: Trace Entropy
+    var_ent = graph_complexity(pa)
+    measures['var_ent'] = var_ent[0]
+    measures['norm_var_ent'] = var_ent[1]
+
+    seq_ent = log_complexity(pa)
+    measures['seq_ent'] = seq_ent[0]
+    measures['seq_var_ent'] = seq_ent[1]
 
     end_time = time()
     measures['time'] = end_time - start_time

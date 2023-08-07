@@ -59,11 +59,11 @@ export const Upload = () => {
   return (
     <div>
       <p>Helptext</p>
-      <h4>Upload</h4>
-      <p>Helptext</p>
+      <h4>How to upload event logs?</h4>
+      <p></p>
 
       <label htmlFor="fileUpload" className="form-label">
-        Select XML-Testset (downloaded from CPEE.org)
+        Select XES of CSV file:
       </label>
       <div className="d-flex mb-3">
         <input

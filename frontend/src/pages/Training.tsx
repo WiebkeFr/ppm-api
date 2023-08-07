@@ -54,7 +54,8 @@ export const Training = () => {
   });
 
   const getTrainingData = () => {
-    axios
+    if(confusionMatrix == ""){
+      axios
       .get(prefix + "/api/evaluate/confusion-matrix")
       .then((res) => {
         setConfusionMatrix(res.data);
@@ -62,8 +63,10 @@ export const Training = () => {
       .catch(() => {
         setConfusionMatrix(EVALUATION_ERROR);
       });
+    }
 
-    axios
+    if(trainingHistory == ""){
+      axios
       .get(prefix + "/api/evaluate/training-history")
       .then((res) => {
         setTrainingHistory(res.data);
@@ -71,8 +74,10 @@ export const Training = () => {
       .catch(() => {
         setTrainingHistory(EVALUATION_ERROR);
       });
+    }
 
-    axios
+    if(JSON.stringify(report) == "{}"){
+      axios
       .get(prefix + "/api/evaluate/classification-report")
       .then((res) => {
         setReport(res.data);
@@ -80,6 +85,7 @@ export const Training = () => {
       .catch(() => {
         setReport(EVALUATION_ERROR);
       });
+    }
   };
 
   const getTableRow = (key: string, values: Object | number) => {

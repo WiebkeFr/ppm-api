@@ -24,7 +24,7 @@ matplotlib.use('agg')
 EPOCH_SIZE = 100
 
 
-class PPM_Model:
+class PPMModel:
     def __init__(self, sequ_enc: str, event_enc: str, path: str):
         """
             - Initializing of additional information for models
@@ -42,7 +42,6 @@ class PPM_Model:
         self.path = path
         self.log = []
         self.unique_events = []
-        self.max_length = 0
         self.event_encoding_dic = {}
         self.X_train = []
         self.Y_train = []
@@ -82,7 +81,7 @@ class PPM_Model:
         # Data-splitting
         self.X_train, self.X_test, self.Y_train, self.Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
-        # convert class vectors to one-hot-encoding
+        # convert label vector to categorical values
         self.Y_train = to_categorical(self.Y_train, len(self.unique_events))
 
     def create(self):
@@ -104,7 +103,7 @@ class PPM_Model:
         progress_path = f"data/training/{model_id}.txt"
         model_path = f"data/models/{model_id}_" + '{val_accuracy:.2f}.keras'
         scores = []
-        skf = StratifiedKFold(n_splits=6, shuffle=True)
+        skf = StratifiedKFold(n_splits=5, shuffle=True)
 
         for i, (train_index, validate_index) in enumerate(skf.split(self.X_train, self.Y_train.argmax(1))):
             print(f"Fold {i}:")

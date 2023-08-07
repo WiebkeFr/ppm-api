@@ -1,16 +1,16 @@
 from keras.optimizers import Nadam
-from train_model.model import PPM_Model
+from train_model.model import PPMModel
 from keras.models import Sequential
 from keras.layers import LSTM, BatchNormalization, Dense
 import numpy as np
 
 
-class LSTM_Model(PPM_Model):
+class LSTM_Model(PPMModel):
     def __init__(self, sequ: str, event: str, path: str):
         super().__init__(sequ, event, path)
         self.model = None
         self.type = "LSTM"
-        self.BATCH_SIZE = min(len(self.unique_events), 15)
+        self.BATCH_SIZE = min(len(self.unique_events), 8)
 
     def create(self):
         """

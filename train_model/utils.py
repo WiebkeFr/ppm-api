@@ -1,6 +1,7 @@
 import json
 import os
 from os.path import isfile, join
+from threading import Thread
 import numpy as np
 from keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, CSVLogger, LambdaCallback
 from gensim.models import Word2Vec
@@ -86,7 +87,7 @@ def embedded_encoding(log):
     """
     all_events = log["concept:name"]
     unique_events = np.unique(all_events.values)
-    traces = log.groupby('case:concept:name', group_keys=False).apply(collect_events)\
+    traces = log.groupby('case:concept:name', group_keys=False).apply(collect_events) \
         .reset_index().drop(['case:concept:name'], axis=1, errors='ignore')
     model = Word2Vec(sentences=traces[0].tolist(), vector_size=len(unique_events), window=3, min_count=1, workers=4)
     model.train([unique_events.tolist()], total_examples=1, epochs=1)
@@ -114,6 +115,7 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         X (Array): Array of encoded traces
         Y (Array): Array of encoded labels
     """
+    model_id = path.split(".")[0]
     trace_df = log.groupby('case:concept:name', group_keys=False).apply(collect_events) \
         .reset_index().drop(['index', 'case:concept:name'], axis=1, errors='ignore')
     X = []
@@ -144,12 +146,13 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         print(corpus[:5])
         X = vectorizer.fit_transform(corpus).toarray()
         print(X[:5])
+        dic_path = os.path.join(os.curdir, "data", "encodings", model_id + '.json')
+        Thread(target=dump_json, args=(vectorizer.vocabulary_, dic_path,)).start()
 
     else:
         X = pad_sequences(X, value=0.0, dtype=object)
 
     X = np.asarray(X).astype('float32')
-
     label_encoder = LabelEncoder()
     Y = label_encoder.fit_transform(Y)
     labels = list(label_encoder.classes_)
@@ -159,10 +162,9 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
     for label, transform_class in zip(labels, transform_classes):
         label_encoding_dic[label] = str(transform_class)
 
-    dic_path = os.path.join(os.curdir, "data", "encodings", path.split('.')[0] + '_label' + '.json')
-    with open(dic_path, "w") as outfile:
-        json.dump(label_encoding_dic, outfile)
-        outfile.close()
+    Thread(target=save_max_length, args=(X.shape[1], model_id,)).start()
+    dic_path = os.path.join(os.curdir, "data", "encodings", model_id + '_label' + '.json')
+    Thread(target=dump_json, args=(label_encoding_dic, dic_path,)).start()
 
     return X, Y
 
@@ -203,3 +205,21 @@ def collect_events(trace):
     if "time:timestamp" in trace:
         return trace.sort_values(by=["time:timestamp"])['concept:name'].tolist()
     return trace['concept:name'].tolist()
+
+
+def save_max_length(length, model_id):
+    configs = {}
+    config_path = os.path.join(os.curdir, f"data/configs/{model_id}.json")
+    with open(config_path) as f:
+        configs = json.load(f)
+
+    configs["max_length"] = length
+
+    with open(config_path, "w") as outfile:
+        json.dump(configs, outfile)
+
+
+def dump_json(dict, filepath):
+    with open(filepath, "w") as outfile:
+        json.dump(dict, outfile)
+        outfile.close()

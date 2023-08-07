@@ -9,11 +9,11 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.tree import DecisionTreeClassifier
 from sklearn import metrics
 
-from train_model.model import PPM_Model
+from train_model.model import PPMModel
 from train_model.utils import remove_lower_accuracies
 
 
-class DT_Model(PPM_Model):
+class DT_Model(PPMModel):
     """
     https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
     """

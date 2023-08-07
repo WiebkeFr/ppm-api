@@ -11,6 +11,10 @@ export interface Measurement {
   unique_t: string;
   struc: number;
   t_div: number;
+  var_ent: number;
+  norm_var_ent: number;
+  seq_ent: number;
+  norm_seq_ent: number;
 }
 
 export const Measurement_Names: {
@@ -30,6 +34,10 @@ export const Measurement_Names: {
   unique_t: "Percentage of unique traces",
   struc: "Average Distinct Events per traces structure",
   t_div: "Trace Diversity",
+  var_ent: "Variant Entropy",
+  norm_var_ent: "Normalized Variant Entropy",
+  seq_ent: "Sequence Entropy",
+  norm_seq_ent: "Normalized sequence Entropy"
 };
 
 export interface AdditionalInfoCsv {

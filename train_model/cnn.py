@@ -1,16 +1,16 @@
 from keras.optimizers import Adam
-from train_model.model import PPM_Model
+from train_model.model import PPMModel
 from keras.models import Sequential
 from keras.layers import MaxPooling1D, Conv1D, Dense, Flatten, ReLU, BatchNormalization
 import numpy as np
 
 
-class CNN_Model(PPM_Model):
+class CNN_Model(PPMModel):
     def __init__(self, sequ: str, event: str, path: str):
         super().__init__(sequ, event, path)
         self.model = None
         self.type = "CNN"
-        self.BATCH_SIZE = min(len(self.unique_events), 15)
+        self.BATCH_SIZE = min(len(self.unique_events), 8)
 
     def create(self):
         """

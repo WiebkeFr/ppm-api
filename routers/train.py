@@ -1,4 +1,6 @@
 from __future__ import annotations
+
+import json
 import os
 
 import pandas as pd
@@ -10,7 +12,7 @@ from starlette.responses import JSONResponse
 from train_model.cnn import CNN_Model
 from train_model.dtree import DT_Model
 from train_model.lstm import LSTM_Model
-from train_model.model import PPM_Model, EPOCH_SIZE
+from train_model.model import PPMModel, EPOCH_SIZE
 from train_model.utils import log_state
 from typing import Literal, Union
 
@@ -51,6 +53,11 @@ async def train_model(request: Request, model_info: Model_Info, background_tasks
     print(model_info)
     id = request.cookies.get('ppm-api').split(".")[0]
     training_path = f"data/training/{id}.csv"
+
+    config_path = os.path.join(os.curdir, f"data/configs/{id}.json")
+    with open(config_path, "w") as outfile:
+        json.dump(model_info.model_dump(), outfile)
+
     if os.path.isfile(training_path) and overwrite != "true":
         return {"state": "warning-duplicate"}
     background_tasks.add_task(start_training, request.cookies.get('ppm-api'), model_info, False)
@@ -76,6 +83,9 @@ async def get_training_progress(request: Request):
 
         if state == "EVALUATE":
             return JSONResponse({"state": "evaluate", "progress": "1"})
+
+        if "ERROR" in state:
+            return JSONResponse({"state": "error", "progress": "-1"})
 
         if int(state) + 1 < EPOCH_SIZE:
             return JSONResponse({"state": "training", "progress": str((int(state) + 1) / EPOCH_SIZE)})
