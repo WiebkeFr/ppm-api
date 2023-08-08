@@ -26,7 +26,7 @@ class Model_Info(BaseModel):
 
 
 def start_training(file_name: str, model_info: Model_Info, additional_evaluation: bool):
-    model = PPM_Model("", "", "DEFAULT")
+    model = PPMModel("", "", "DEFAULT")
 
     if model_info.type == 'LSTM':
         model = LSTM_Model(model_info.sequ_enc, model_info.event_enc, file_name)

@@ -107,6 +107,9 @@ class PPMModel:
 
         for i, (train_index, validate_index) in enumerate(skf.split(self.X_train, self.Y_train.argmax(1))):
             print(f"Fold {i}:")
+            if i > 2:
+                break
+
             start_time = time()
             self.create()
             self.model.fit(self.X_train[train_index], self.Y_train[train_index], batch_size=self.BATCH_SIZE,

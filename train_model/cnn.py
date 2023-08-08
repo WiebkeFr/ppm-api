@@ -20,7 +20,6 @@ class CNN_Model(PPMModel):
             self.X_train = np.reshape(self.X_train, (*self.X_train.shape, 1))
             self.X_test = np.reshape(self.X_test, (*self.X_test.shape, 1))
 
-        print(self.X_train.shape[1:])
         model = Sequential()
         model.add(Conv1D(128, 10, padding='same', strides=1,
                          input_shape=self.X_train.shape[1:]))
