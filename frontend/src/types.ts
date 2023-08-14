@@ -1,6 +1,6 @@
 export interface Measurement {
+  "#total_events": number;
   "#events": number;
-  "#activity": number;
   "#traces": number;
   min_trace: number;
   max_trace: number;
@@ -10,34 +10,34 @@ export interface Measurement {
   l_detail: number;
   unique_t: string;
   struc: number;
-  t_div: number;
+  "#ties": number;
   var_ent: number;
-  norm_var_ent: number;
+  nvar_ent: number;
   seq_ent: number;
-  norm_seq_ent: number;
+  nseq_ent: number;
 }
 
 export const Measurement_Names: {
   [key: string]: string;
 } = {
-  "#events": "Total number of events",
-  "#activity": "Total number of event classes",
+  "#total_events": "Total number of events",
+  "#events": "Total number of event classes",
   "#traces": "Total number of traces",
   min_trace: "Minimum trace length",
   max_trace: "Maximum trace length",
   avg_trace: "Average trace length",
   l_detail: "Number of Acyclic Paths in Transition Matrix",
+  "#ties": "Number of Ties in Transition Matrix",
   time: "Duration",
   lz_compl: "Lempel–Ziv Complexity",
   avg_aff: "Average Affinity",
   dev_rand: "Deviation from random",
   unique_t: "Percentage of unique traces",
   struc: "Average Distinct Events per traces structure",
-  t_div: "Trace Diversity",
   var_ent: "Variant Entropy",
-  norm_var_ent: "Normalized Variant Entropy",
+  nvar_ent: "Normalized Variant Entropy",
   seq_ent: "Sequence Entropy",
-  norm_seq_ent: "Normalized sequence Entropy"
+  nseq_ent: "Normalized sequence Entropy"
 };
 
 export interface AdditionalInfoCsv {

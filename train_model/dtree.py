@@ -41,7 +41,7 @@ class DT_Model(PPMModel):
         """
         id = self.path.split('.')[0]
         training_path = f"data/training/{id}.csv"
-        skf = StratifiedKFold(n_splits=6, shuffle=True)
+        skf = StratifiedKFold(n_splits=5, shuffle=True)
         self.create()
 
         data = []
