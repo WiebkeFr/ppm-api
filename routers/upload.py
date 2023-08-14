@@ -104,6 +104,6 @@ async def collect_cpee_event_logs(request: Request):
             writer.writerow(list(body.values()))
 
     df = pd.read_csv('{0}.csv'.format(file_name))
-    print(df)
+    print(df, df.columns)
 
     return {"state": "success"}
