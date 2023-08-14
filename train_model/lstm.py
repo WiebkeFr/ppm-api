@@ -10,7 +10,7 @@ class LSTM_Model(PPMModel):
         super().__init__(sequ, event, path)
         self.model = None
         self.type = "LSTM"
-        self.BATCH_SIZE = min(len(self.unique_events), 8)
+        self.BATCH_SIZE = min(len(self.unique_events), 15)
 
     def create(self):
         """

@@ -2,7 +2,7 @@ import os
 import pandas as pd
 
 
-def process_csv(file, id, info, path = "logs"):
+def process_csv(file, id, path = "logs"):
     dataframe = pd.read_csv(file.file)
     path = os.path.join(os.curdir, "data", path, "{}.csv".format(id))
     dataframe.to_csv(path, encoding='utf-8', index=False)

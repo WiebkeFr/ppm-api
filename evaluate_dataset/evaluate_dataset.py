@@ -12,11 +12,7 @@ def event_log_assessment(id):
     print(path)
 
     pm4py_log = generate_pm4py_log(path)
-
-    print(pm4py_log[:3])
-
     log = generate_log(pm4py_log)
-    print(log[:3])
     pa = build_graph(log)
 
     start_time = time()
@@ -24,10 +20,10 @@ def event_log_assessment(id):
     measures = {}
 
     # SIZE: Returns the number of events in the event log
-    measures['#events'] = measure_magnitude(log)
+    measures['#total_events'] = measure_magnitude(log)
 
     # SIZE: Returns the number of event classes in the event log
-    measures['#activity'] = measure_variety(pm4py_log)
+    measures['#events'] = measure_variety(pm4py_log)
 
     # SIZE: Returns the number of traces in the event log
     measures['#traces'] = measure_support(pm4py_log)
@@ -44,7 +40,7 @@ def event_log_assessment(id):
     measures['l_detail'] = measure_level_of_detail(pm4py_log)
 
     # VARIATION: Number of Ties in Transition Matrix
-
+    measures['#ties'] = measure_pentland_task(pa)
 
     # VARIATION: Lempel–Ziv Complexity
     measures['lz_compl'] = measure_lempel_ziv(log)
@@ -61,17 +57,14 @@ def event_log_assessment(id):
     # DISTANCE: Deviation from random:
     measures['dev_rand'] = measure_deviation_from_random(log, pm4py_log)
 
-    # DISTANCE: Trace Diversity
-    measures['t_div'] = measure_pentland_task(pa)
-
     # GRAPH: Trace Entropy
     var_ent = graph_complexity(pa)
     measures['var_ent'] = var_ent[0]
-    measures['norm_var_ent'] = var_ent[1]
+    measures['nvar_ent'] = var_ent[1]
 
     seq_ent = log_complexity(pa)
     measures['seq_ent'] = seq_ent[0]
-    measures['seq_var_ent'] = seq_ent[1]
+    measures['nseq_ent'] = seq_ent[1]
 
     end_time = time()
     measures['time'] = end_time - start_time
