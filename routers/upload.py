@@ -89,7 +89,7 @@ async def collect_cpee_event_logs(request: Request):
     else:
         with open(file_path, 'a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(list(body.keys()))
+            writer.writerow(["case_id", "event_id", "time_stamp"])
             writer.writerow([case_id, event_id, time_stamp])
 
     df = pd.read_csv(file_path)
