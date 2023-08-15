@@ -46,39 +46,6 @@ async def upload_event_logs(response: Response, background_tasks: BackgroundTask
     return {"state": "success"}
 
 
-@router.post("/cpee-process")
-async def upload(request: Request):
-    form_data = await request.form()
-    file = form_data.get("file")
-    contents = await file.read()
-    xml = contents.decode('UTF-8')
-    file_name = file.filename
-    add_subscription(xml)
-    updated_xml = add_subscription(xml)
-    with open(file_name, 'w') as file:
-        file.write(updated_xml)
-        file.close()
-    start_shell_script()
-    return {"state": xmltodict.parse(updated_xml)}
-
-
-@router.post("/link")
-async def upload_cpee_link(request: Request):
-    print("")
-    form_data = await request.form()
-    file = form_data.get("file")
-    contents = await file.read()
-    xml = contents.decode('UTF-8')
-    file_name = file.filename
-    add_subscription(xml)
-    updated_xml = add_subscription(xml)
-    with open(file_name, 'w') as file:
-        file.write(updated_xml)
-        file.close()
-    start_shell_script()
-    return {"state": xmltodict.parse(updated_xml)}
-
-
 @router.post("/log")
 async def collect_cpee_event_logs(request: Request):
     body_as_byte = await request.body()
@@ -87,8 +54,8 @@ async def collect_cpee_event_logs(request: Request):
     body = json.loads(body_as_string)
 
     id = body['instance-name']
-    file_path = f"/data/cpee/{id}.csv"
-    progress_path = f"/data/cpee/{id}_progress.txt"
+    file_path = os.path.join(os.curdir, "data", "cpee", "{}.csv".format(id))
+    progress_path = os.path.join(os.curdir, "data", "cpee", "{}_progress.txt".format(id))
 
     if body['topic'] == 'state' and body['content']["state"] == 'finished':
         if os.path.exists(progress_path):
