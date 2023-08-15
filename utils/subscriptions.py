@@ -6,7 +6,7 @@ import xmltodict
 
 subscription = """
   <subscriptions xmlns="http://riddl.org/ns/common-patterns/notifications-producer/2.0">
-    <subscription xmlns="http://riddl.org/ns/common-patterns/notifications-producer/2.0" id="_student" url="https://lehre.bpm.in.tum.de/ports/9009/api/log">
+    <subscription xmlns="http://riddl.org/ns/common-patterns/notifications-producer/2.0" id="_student" url="https://lehre.bpm.in.tum.de/ports/9999/api/upload/log">
       <topic id="state">
       <event>change</event>
       </topic>
@@ -20,17 +20,10 @@ subscription = """
 """
 
 
-def add_subscription(xml: string):
+def add_subscription(xml: string, id: string):
     xml_as_json = xmltodict.parse(xml)
     subscription_as_json = xmltodict.parse(subscription)
 
-    pp = pprint.PrettyPrinter(indent=4)
-    # pp.pprint(json.dumps(xml_as_json))
-
     xml_as_json["testset"]["subscriptions"] = subscription_as_json["subscriptions"]
-
-    # pp.pprint(json.dumps(xml_as_json))
-    # pp.pprint(json.dumps(subscription_as_json))
-
-    # print(xmltodict.unparse(xmltodict.parse(xml), pretty=True))
+    xml_as_json["testset"]["attributes"]["info"] = id
     return xmltodict.unparse(xml_as_json)

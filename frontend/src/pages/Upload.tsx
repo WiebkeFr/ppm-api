@@ -1,18 +1,10 @@
 import React, { ChangeEvent, useState } from "react";
 import axios from "axios";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { AdditionalInfoCsv } from "../types";
 
 export const Upload = () => {
   const prefix = process.env.REACT_APP_PREFIX;
   const [file, setFile] = useState<File>();
-  const [info, setInfo] = useState<AdditionalInfoCsv>({
-    isWithHeader: false,
-    delimiter: ",",
-    caseIdColumn: 0,
-    activityColumn: 1,
-    timestampColumn: 2,
-  });
   const [progress, setProgress] = useState(0);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,19 +16,11 @@ export const Upload = () => {
     }
   };
 
-  const handleAddInfo = (e: ChangeEvent<HTMLInputElement>, id: string) => {
-    setInfo((prevState) => ({
-      ...prevState,
-      [id]: e.target.checked,
-    }));
-  };
-
   const uploadFile = async () => {
     if (!file) return;
 
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("info", JSON.stringify(info));
 
     axios
       .post(prefix + "/api/upload/event-logs", formData, {
@@ -63,13 +47,13 @@ export const Upload = () => {
       <p></p>
 
       <label htmlFor="fileUpload" className="form-label">
-        Select XES of CSV file:
+        Select file:
       </label>
       <div className="d-flex mb-3">
         <input
           className="form-control file-upload-field"
           type="file"
-          accept="text/xml/csv/xes"
+          accept="xml/csv/xes"
           id="fileUpload"
           onChange={handleFileChange}
         />
@@ -82,20 +66,6 @@ export const Upload = () => {
           <i className="bi bi-upload ps-2"></i>
         </button>
       </div>
-      <div className="form-group row">
-        <div className="col-sm-2">Checkbox</div>
-        <div className="col-sm-10">
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="gridCheck1"
-              onChange={(e) => handleAddInfo(e, "isWithHeader")}
-            />
-          </div>
-        </div>
-      </div>
-
       {progress === 100 && (
         <div className="alert alert-success d-inline-block mt-3" role="alert">
           Successfully uploaded!

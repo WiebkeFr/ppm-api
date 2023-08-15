@@ -10,45 +10,39 @@ import pm4py
 from typing import Optional
 from fastapi import Form, File, UploadFile
 from pydantic import BaseModel
-from helper.process_uploads import process_csv, process_xes
+from utils.process_uploads import process_csv, process_xes, process_xml
 from utils.subscriptions import add_subscription
 from utils.run_events import start_shell_script
-
+import shutil
 router = APIRouter()
 
-
-class Info(BaseModel):
-    isWithHeader: bool
-    delimiter: str
-    caseIdColumn: int
-    activityColumn: int
-    timestampColumn: int
-
+TRACE_NUMBER = 50
 
 def remove_starting_event(filename: str):
     filepath = os.path.join(os.curdir, "data", "logs", filename)
     log = pm4py.read_xes(filepath)
     if "lifecycle:transition" in log:
         x = log[(log["lifecycle:transition"] == "complete") | (log["lifecycle:transition"] == "COMPLETE")]
-        print(x[:3])
-        print(x.columns)
         pm4py.write_xes(x[["concept:name", "time:timestamp", "case:concept:name"]], filepath)
 
 
 @router.post("/event-logs")
-async def upload_event_logs(response: Response, background_tasks: BackgroundTasks, file: UploadFile = File(...),
-                            info: Optional[str] = Form(None)):
+async def upload_event_logs(response: Response, background_tasks: BackgroundTasks, file: UploadFile = File(...)):
     print(file.filename)
     session_id = str(uuid.uuid4())
 
     if file.filename[-3:] == 'csv':
-        process_csv(file, session_id, info)
+        process_csv(file, session_id)
     if file.filename[-3:] == 'xes':
         await process_xes(file, session_id)
+    if file.filename[-3:] == 'xml':
+        background_tasks.add_task(process_xml, file, session_id)
 
-    filename = "{}.{}".format(session_id, file.filename[-3:])
+    type = "xes" if file.filename[-3:] == "xes" else "csv"
+    filename = "{}.{}".format(session_id, type)
     response.set_cookie(key="ppm-api", value=filename)
-    background_tasks.add_task(remove_starting_event, filename)
+    if type == "xes":
+        background_tasks.add_task(remove_starting_event, filename)
     return {"state": "success"}
 
 
@@ -91,19 +85,47 @@ async def collect_cpee_event_logs(request: Request):
     all_infos = body_as_byte.decode('UTF-8').split("\r\n")
     body_as_string = [param for param in all_infos if param.startswith("{") and param.endswith("}")][0]
     body = json.loads(body_as_string)
-    file_name = body['instance-name']
-    file_exists = os.path.exists('{0}.csv'.format(file_name))
+
+    id = body['instance-name']
+    file_path = f"/data/cpee/{id}.csv"
+    progress_path = f"/data/cpee/{id}_progress.txt"
+
+    if body['topic'] == 'state' and body['content']["state"] == 'finished':
+        if os.path.exists(progress_path):
+            with open(progress_path, 'w') as f:
+                old_state = int(f.read())
+                f.write(old_state + 1)
+                f.close()
+
+                if old_state + 1 == TRACE_NUMBER:
+                    shutil.move(file_path, f"/data/logs/{id}.csv")
+                    os.remove(progress_path)
+                    return {"state": "trace finished"}
+
+        else:
+            with open(progress_path, 'w') as f:
+                f.write(0)
+                f.close()
+
+    if body['name'] != 'done':
+        return {"state": "activity called"}
+
+    file_exists = os.path.exists(file_path)
+    case_id = body['instance']
+    time_stamp = body['timestamp']
+    event_id = body['content']["activity"]
+
     if file_exists:
-        with open('{0}.csv'.format(file_name), 'a', newline='') as file:
+        with open(file_path, 'a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(list(body.values()))
+            writer.writerow([case_id, event_id, time_stamp])
     else:
-        with open('{0}.csv'.format(file_name), 'a', newline='') as file:
+        with open(file_path, 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(list(body.keys()))
-            writer.writerow(list(body.values()))
+            writer.writerow([case_id, event_id, time_stamp])
 
-    df = pd.read_csv('{0}.csv'.format(file_name))
+    df = pd.read_csv(file_path)
     print(df, df.columns)
 
     return {"state": "success"}
