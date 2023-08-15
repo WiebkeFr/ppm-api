@@ -78,6 +78,7 @@ async def collect_cpee_event_logs(request: Request):
                 print("START")
                 f.write("PROGRESS")
                 f.close()
+                print("written")
 
     if body['name'] != 'done':
         return {"state": "activity called"}
