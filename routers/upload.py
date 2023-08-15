@@ -59,7 +59,7 @@ async def collect_cpee_event_logs(request: Request):
 
     if body['topic'] == 'state' and body['content']["state"] == 'finished':
         print("FINISHED", body['instance'])
-        if os.path.exists(progress_path):
+        if os.path.isfile(progress_path):
             with open(progress_path, 'w+') as f:
                 old_state = f.read()
                 print(old_state)
@@ -73,9 +73,9 @@ async def collect_cpee_event_logs(request: Request):
                 else:
                     f.write(str(new_state))
                     f.close()
-
         else:
             with open(progress_path, 'w') as f:
+                print("START")
                 f.write("0")
                 f.close()
 
