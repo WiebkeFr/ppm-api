@@ -74,9 +74,10 @@ async def collect_cpee_event_logs(request: Request):
                     f.write(str(new_state))
                     f.close()
         else:
-            with open(progress_path, 'w') as f:
+            with open(progress_path, 'w+') as f:
                 print("START")
                 f.write("PROGRESS")
+                f.flush()
                 f.close()
                 print("written")
 
