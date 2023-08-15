@@ -17,7 +17,7 @@ import shutil
 
 router = APIRouter()
 
-TRACE_NUMBER = 50
+TRACE_NUMBER = 6
 
 
 def remove_starting_event(filename: str):
@@ -62,23 +62,28 @@ async def collect_cpee_event_logs(request: Request):
     id = body['instance-name']
     file_path = os.path.join(os.curdir, "data", "cpee", "{}.csv".format(id))
     progress_path = os.path.join(os.curdir, "data", "cpee", "{}_progress.txt".format(id))
+    result_path = os.path.join(os.curdir, "data", "logs", "{}.csv".format(id))
 
     if body['topic'] == 'state' and body['content']["state"] == 'finished':
         print("FINISHED", body['instance'])
+        isFinished = False
         with open(progress_path, 'r+') as f:
             old_state = f.read()
-            print(old_state)
             new_state = 1 + int(old_state)
-            print("new_state", new_state)
             if new_state == TRACE_NUMBER:
+                isFinished = True
                 print("FINISHED ALL")
-                shutil.move(file_path, f"/data/logs/{id}.csv")
+                shutil.move(file_path, result_path)
                 os.remove(progress_path)
                 return {"state": "trace finished"}
             else:
                 f.seek(0)
                 f.write(str(new_state))
                 f.close()
+
+        if isFinished:
+            os.remove(progress_path)
+            return {"state": "trace finished"}
 
     if body['name'] != 'done':
         return {"state": "activity called"}
