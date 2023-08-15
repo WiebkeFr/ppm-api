@@ -59,19 +59,20 @@ async def collect_cpee_event_logs(request: Request):
 
     if body['topic'] == 'state' and body['content']["state"] == 'finished':
         if os.path.exists(progress_path):
-            with open(progress_path, 'w') as f:
+            with open(progress_path, 'w+') as f:
                 old_state = int(f.read())
-                f.write(old_state + 1)
+                new_state = old_state + 1
+                f.write(str(new_state))
                 f.close()
 
-                if old_state + 1 == TRACE_NUMBER:
+                if new_state + 1 == TRACE_NUMBER:
                     shutil.move(file_path, f"/data/logs/{id}.csv")
                     os.remove(progress_path)
                     return {"state": "trace finished"}
 
         else:
             with open(progress_path, 'w') as f:
-                f.write(0)
+                f.write("0")
                 f.close()
 
     if body['name'] != 'done':
