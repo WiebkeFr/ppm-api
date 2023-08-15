@@ -53,7 +53,7 @@ app.include_router(train.router,
                    prefix="/api/train",
                    tags=["API – Training"])
 
-app.include_router(train.router,
+app.include_router(predict.router,
                    prefix="/api/predict",
                    tags=["API – Prediction"])
 
