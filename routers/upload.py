@@ -68,7 +68,7 @@ async def collect_cpee_event_logs(request: Request):
         with open(progress_path, 'r+') as f:
             old_state = f.read()
             print(old_state)
-            new_state = int(old_state) + 1
+            new_state = 1 + int(old_state)
             print("new_state", new_state)
             if new_state == TRACE_NUMBER:
                 print("FINISHED ALL")
@@ -76,6 +76,7 @@ async def collect_cpee_event_logs(request: Request):
                 os.remove(progress_path)
                 return {"state": "trace finished"}
             else:
+                f.seek(0)
                 f.write(str(new_state))
                 f.close()
 
