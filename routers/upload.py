@@ -58,17 +58,21 @@ async def collect_cpee_event_logs(request: Request):
     progress_path = os.path.join(os.curdir, "data", "cpee", "{}_progress.txt".format(id))
 
     if body['topic'] == 'state' and body['content']["state"] == 'finished':
+        print("FINISHED", body['instance'])
         if os.path.exists(progress_path):
             with open(progress_path, 'w+') as f:
-                old_state = int(f.read())
-                new_state = old_state + 1
-                f.write(str(new_state))
-                f.close()
+                old_state = f.read()
+                print(old_state)
+                new_state = int(old_state) + 1
 
-                if new_state + 1 == TRACE_NUMBER:
+                if new_state == TRACE_NUMBER:
+                    print("FINISHED ALL")
                     shutil.move(file_path, f"/data/logs/{id}.csv")
                     os.remove(progress_path)
                     return {"state": "trace finished"}
+                else:
+                    f.write(str(new_state))
+                    f.close()
 
         else:
             with open(progress_path, 'w') as f:
