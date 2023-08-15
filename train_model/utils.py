@@ -9,6 +9,7 @@ from keras.utils import pad_sequences
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.feature_extraction.text import CountVectorizer
 
+# 3 events => label
 WINDOW_SIZE = 4
 
 ##

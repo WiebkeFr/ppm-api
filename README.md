@@ -1,20 +1,43 @@
-# ppm-api
+# Webservice for Next Event Prediction using different Predictive Process Monitoring Techniques
 
-### How to start RestAPI?
+## What is this project?
+
+This is a web application to analyze event logs and train predictive models in order to conduct next event predictions. The implemented techniques are Long Stort-Term Memory, Convolutional Neural Network and Decision Tree.
+
+## How to run the project?
+
+### 1. Clone repository
 ```
-source env/bin/activate
-pip3 install -r requirements.txt
-uvicorn main:app --host '::1' --port 9009
+git clone https://gitlab.lrz.de/wiebkefreitag/ppm-web-app
 ```
 
-### Overview:
-- #### run-process.sh
-This is how the bash-script is run
+### 2. Start virtual environment
 ```
->> bash run-process.sh X
+python3 -m venv venv && source venv/bin/activate
 ```
-with **X** being the number of iterations the process should be run. If no number is provided the process is run five times.
-- #### test-process.xml
+
+### 3. Install Dependencies and Build Frontend
+```
+cd frontend             
+npm install      
+npm run build
+```
+
+### 4. Install Dependencies and Start Web Application
+```
+pip install -r requirements.txt 
+python main.py
+```
+
+In case of error `[Errno 28] No space left on device while installing TensorFlow`:
+```
+TMPDIR=/home/students/<id>/pip-cache/ pip install --cache-dir=/home/students/<id>/pip-cache/ --build /home/students/<id>/pip-cache/ tensorflow==2.12.0
+```
 
 ### Endpoints
-Endpoints can be found at ```/docs```.
+Endpoints can be found at ```/docs```
+
+### Additional Information
+- the application is run on port '9999'
+- the folder 'RESULTS' contains data and scripts for the Bachelor's Thesis
+- the event logs of the data collection are located in folder 'DATASETS'

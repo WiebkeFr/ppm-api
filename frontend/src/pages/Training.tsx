@@ -5,7 +5,9 @@ const TRAINING_ERROR =
   "An error occurred while training!\nPlease make sure you uploaded a correct dataset and chose a valid selection of model-type and encodings.";
 const EVALUATION_ERROR =
   '<div class="alert alert-danger d-inline-block mt-3" role="alert">error occurred while training</div>';
-const EXPLANATION = "Explanation of confusion matrix";
+const EXPLANATION =
+    'Further explanation on the Metrics can be found under the following links:' +
+    '<a src="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">Scikit-Learn: Confusion Matrix</a>';
 
 export const Training = () => {
   const prefix = process.env.REACT_APP_PREFIX;
@@ -49,8 +51,9 @@ export const Training = () => {
           setState("error");
           setProgress(-1);
           console.log(error);
+          clearInterval(interval);
         });
-    }, 1000);
+    }, 10000);
   });
 
   const getTrainingData = () => {

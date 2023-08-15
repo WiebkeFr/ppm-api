@@ -55,7 +55,7 @@ async def train_model(request: Request, model_info: Model_Info, background_tasks
     training_path = f"data/training/{id}.csv"
 
     config_path = os.path.join(os.curdir, f"data/configs/{id}.json")
-    with open(config_path, "w") as outfile:
+    with open(config_path, "w+") as outfile:
         json.dump(model_info.model_dump(), outfile)
 
     if os.path.isfile(training_path) and overwrite != "true":
