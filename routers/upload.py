@@ -40,10 +40,8 @@ async def upload_event_logs(response: Response, background_tasks: BackgroundTask
     if file.filename[-3:] == 'xml':
         progress_path = os.path.join(os.curdir, "data", "cpee", "{}_progress.txt".format(session_id))
         with open(progress_path, 'w+') as f:
-            print("START")
             f.write("0")
             f.close()
-            print("written")
         background_tasks.add_task(process_xml, file, session_id)
 
     type = "xes" if file.filename[-3:] == "xes" else "csv"
@@ -71,7 +69,7 @@ async def collect_cpee_event_logs(request: Request):
             old_state = f.read()
             print(old_state)
             new_state = int(old_state) + 1
-
+            print("new_state", new_state)
             if new_state == TRACE_NUMBER:
                 print("FINISHED ALL")
                 shutil.move(file_path, f"/data/logs/{id}.csv")
