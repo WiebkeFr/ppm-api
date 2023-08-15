@@ -15,4 +15,4 @@ templates = Jinja2Templates(directory="frontend/build")
 @router.get("/prediction", response_class=HTMLResponse)
 @router.get("/information", response_class=HTMLResponse)
 def show_selected_page(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "prefix": f"ports/{port}"})
+    return templates.TemplateResponse("index.html", {"request": request, "prefix": f"ports/9999"})

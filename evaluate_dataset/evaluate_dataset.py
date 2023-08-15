@@ -1,11 +1,18 @@
+import json
 from time import time
 import os
+import pickle
+
 
 from evaluate_dataset.complexity import measure_lempel_ziv, measure_deviation_from_random, generate_pm4py_log, \
     generate_log, measure_affinity, measure_trace_length, aux_event_classes, measure_support, measure_magnitude, \
     measure_distinct_traces, measure_structure, measure_level_of_detail, measure_variety, build_graph, \
     measure_pentland_task, graph_complexity, log_complexity
 
+path = "/evaluate_dataset/decision_tree_technique.sav"
+path = os.path.join(os.curdir, "evaluate_dataset", "decision_tree_technique.sav")
+clf = pickle.load(open(path, 'rb'))
+scaler = pickle.load(open("evaluate_dataset/min_max_scaler.sav", 'rb'))
 
 def event_log_assessment(id):
     path = os.path.join(os.curdir, "data", "logs", id)
@@ -70,3 +77,21 @@ def event_log_assessment(id):
     measures['time'] = end_time - start_time
 
     return measures
+
+
+def set_config_suggestion(id):
+    path = os.path.join(os.curdir, "data", "evaluations", f"{id}.json")
+    features = ['#total_events', '#events', '#traces', 'max_trace', 'avg_trace', 'l_detail', 'lz_compl',
+                'unique_t', 'struc', 'avg_aff', 'nvar_ent', 'seq_ent']
+
+    with open(path) as f:
+        complexity = json.load(f)
+
+        sample = [complexity[feature] for feature in features]
+        scaled_row = scaler.transform([sample])
+        pred_result = clf.predict(scaled_row)[0]
+        pred_prob_result = clf.predict_proba(scaled_row)[0]
+
+        print(pred_result)
+        print(pred_prob_result)
+        return {type: pred_result, 'seq_enc': 'PREPAD', 'event_enc': 'ONEHOT'}

@@ -6,7 +6,7 @@ from starlette.requests import Request
 import os
 
 from starlette.responses import FileResponse
-from evaluate_dataset.evaluate_dataset import event_log_assessment
+from evaluate_dataset.evaluate_dataset import event_log_assessment, set_config_suggestion
 
 router = APIRouter()
 
@@ -16,6 +16,7 @@ async def evaluate_logs(request: Request):
     session_id = request.cookies.get('ppm-api')
     model_id = session_id.split(".")[0]
     path = f"data/evaluations/{model_id}.json"
+    suggestion_path = f"data/evaluations/{model_id}_suggestion.json"
     if os.path.isfile(path):
         with open(path) as f:
             return json.load(f)
@@ -29,9 +30,11 @@ async def evaluate_logs(request: Request):
     with open(eval_path, "w") as outfile:
         json.dump(evaluation, outfile)
 
-    with open("RESULT/complexity.csv", "a") as stream:
-        writer = csv.writer(stream)
-        writer.writerow(["-", "-", "-", "-", *evaluation.values()])
+    suggestion = set_config_suggestion(id)
+
+    suggestion_path = os.path.join(os.curdir, suggestion_path)
+    with open(suggestion_path, "w") as outfile:
+        json.dump(suggestion, outfile)
 
     return evaluation
 
@@ -61,3 +64,21 @@ async def get_classification_report(request: Request):
     if not os.path.isfile(path):
         raise HTTPException(409, detail="Report history is not available")
     return FileResponse(path)
+
+
+@router.get("/selection")
+async def get_recommended_selection(request: Request):
+    session_id = request.cookies.get('ppm-api')
+    model_id = session_id.split(".")[0]
+    path = f"data/evaluations/{model_id}_suggestion.json"
+    if os.path.isfile(path):
+        with open(path) as f:
+            return json.load(f)
+    else:
+        eval_path = f"data/evaluations/{model_id}.json"
+        if os.path.isfile(eval_path):
+            suggestion = set_config_suggestion(id)
+            with open(path, "w") as outfile:
+                json.dump(suggestion, outfile)
+            return suggestion
+        raise HTTPException(409, detail="Dataset evaluation is not available")
