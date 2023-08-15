@@ -1,23 +1,17 @@
-import pandas as pd
 import csv
 import os.path
 from starlette.requests import Request
-import xmltodict
 import json
 from fastapi import APIRouter, Response, BackgroundTasks
 import uuid
 import pm4py
-from typing import Optional
-from fastapi import Form, File, UploadFile
-from pydantic import BaseModel
+from fastapi import File, UploadFile
 from utils.process_uploads import process_csv, process_xes, process_xml
-from utils.subscriptions import add_subscription
-from utils.run_events import start_shell_script
 import shutil
 
-router = APIRouter()
+from utils.run_events import TRACE_NUMBER
 
-TRACE_NUMBER = 6
+router = APIRouter()
 
 
 def remove_starting_event(filename: str):
@@ -65,14 +59,11 @@ async def collect_cpee_event_logs(request: Request):
     result_path = os.path.join(os.curdir, "data", "logs", "{}.csv".format(id))
 
     if body['topic'] == 'state' and body['content']["state"] == 'finished':
-        print("FINISHED", body['instance'])
-        isFinished = False
         with open(progress_path, 'r+') as f:
             old_state = f.read()
             new_state = 1 + int(old_state)
             if new_state == TRACE_NUMBER:
-                isFinished = True
-                print("FINISHED ALL")
+                print("Finished: Logs Generated")
                 shutil.move(file_path, result_path)
                 os.remove(progress_path)
                 return {"state": "trace finished"}
@@ -80,10 +71,6 @@ async def collect_cpee_event_logs(request: Request):
                 f.seek(0)
                 f.write(str(new_state))
                 f.close()
-
-        if isFinished:
-            os.remove(progress_path)
-            return {"state": "trace finished"}
 
     if body['name'] != 'done':
         return {"state": "activity called"}
@@ -102,8 +89,5 @@ async def collect_cpee_event_logs(request: Request):
             writer = csv.writer(file)
             writer.writerow(["case_id", "event_id", "time_stamp"])
             writer.writerow([case_id, event_id, time_stamp])
-
-    df = pd.read_csv(file_path)
-    print(df, df.columns)
 
     return {"state": "success"}

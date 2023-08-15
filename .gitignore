@@ -130,5 +130,4 @@ dmypy.json
 .pyre/
 
 # generated documents
-data/
-RESULT/
+data/*/*

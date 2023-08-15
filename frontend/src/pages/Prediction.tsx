@@ -5,6 +5,8 @@ export const Prediction = () => {
   const prefix = process.env.REACT_APP_PREFIX;
   const [file, setFile] = useState<File>();
   const [progress, setProgress] = useState(0);
+  const [error, setError] = useState<string>("");
+  const [result, setResult] = useState({"next_event": "", process: []})
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (progress === -1) {
@@ -31,25 +33,27 @@ export const Prediction = () => {
         },
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        setResult(res.data)
       })
       .catch((error) => {
-        console.log(error.message);
+        console.log(error);
         setProgress(-1);
+        setError(error.response.data.detail || error.message);
       });
   };
 
   return (
     <div>
-      <h4>Execution of Prediction</h4>
+      <h4 className="mt-4">Execution of Prediction</h4>
       <label htmlFor="fileUpload" className="form-label">
-        Upload XES-File of unfinished proces
+        Upload the unfinished process as a XES/CSV file (same format as the event log)
       </label>
       <div className="d-flex mb-3">
         <input
           className="form-control file-upload-field"
           type="file"
-          accept="text/xml/csv/xes"
+          accept="xml/csv/xes"
           id="fileUpload"
           onChange={handleFileChange}
         />
@@ -62,7 +66,8 @@ export const Prediction = () => {
           <i className="bi bi-upload ps-2"></i>
         </button>
       </div>
-      <div className="d-flex my-3 align-items-center">
+      { progress > 0 && progress < 100 && (
+        <div className="d-flex my-3 align-items-center">
         <h4 className="my-2">Upload Progress:</h4>
         <div className="progress w-50 ms-3">
           <div
@@ -80,6 +85,33 @@ export const Prediction = () => {
           </div>
         </div>
       </div>
+      )}
+      {error !== "" && (
+        <div className="alert alert-danger d-inline-block mt-3" role="alert">
+          {error}
+        </div>
+      )}
+      {
+        result.next_event != "" && result.process.length != 0 &&
+          <div className="d-flex">
+            <div className="me-4 mt-4">
+              <h4>Ongoing Process</h4>
+              <table>
+                    {
+                      result.process.map(event => <tr>{event}</tr>)
+                    }
+              </table>
+            </div>
+            <div className="vr"></div>
+            <div className="mt-4">
+              <h4>Next Event</h4>
+                <table>
+                    <tr>{result.next_event}</tr>
+                </table>
+            </div>
+          </div>
+      }
+
     </div>
   );
 };

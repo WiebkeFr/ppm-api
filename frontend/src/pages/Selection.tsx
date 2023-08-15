@@ -21,6 +21,7 @@ const initialTrainingOptions = TrainingInfoOptions.reduce(
 export const Selection = () => {
   const prefix = process.env.REACT_APP_PREFIX;
   const [measures, setMeasures] = useState<Measurement | {}>({});
+  const [suggestion, setSuggestion] = useState("")
   const [error, setError] = useState<string>("");
   const [trainingInfo, setTrainingInfo] = useState<TrainingInfoSelection>(
     initialTrainingOptions
@@ -42,6 +43,7 @@ export const Selection = () => {
         .then((res) => {
           console.log(res.data);
           setMeasures(res.data);
+          getSuggestion()
         })
         .catch((error) => {
           console.log(error);
@@ -49,6 +51,19 @@ export const Selection = () => {
         });
     }
   });
+
+  const getSuggestion = () => {
+    axios
+        .get(prefix + "/api/evaluate/selection")
+        .then((res) => {
+          console.log(res.data)
+          setSuggestion(res.data.type);
+        })
+        .catch((error) => {
+          console.log(error);
+          setError(error.response.data.detail || error.message);
+        });
+  }
 
   const startTraining = () => {
     axios.post(prefix + "/api/train", trainingInfo).then((res) => {
@@ -68,7 +83,7 @@ export const Selection = () => {
 
   return (
     <div>
-      <h4>Selection</h4>
+      <h4 className="mt-4">Selection</h4>
 
       {error !== "" && (
         <div className="alert alert-danger d-inline-block mt-3" role="alert">
@@ -100,6 +115,14 @@ export const Selection = () => {
         </div>
       ))}
 
+        {
+            suggestion != "" &&
+            <div className="alert alert-info d-inline-block mt-4" role="alert">
+              Suggested Model Type: {suggestion}
+            </div>
+        }
+      <h4 className="mt-4">Characteristic of Event Log</h4>
+
       <table
         className="table table-striped"
         style={{ width: "70%", marginTop: "16px" }}
@@ -117,17 +140,20 @@ export const Selection = () => {
           ))}
         </tbody>
       </table>
+
       {error === "" && Object.entries(measures).length === 0 && (
         <div className="d-flex justify-content-center">
           <div className="spinner-border" role="status"></div>
         </div>
       )}
+
       {error === "" && (
         <button className="border rounded my-5 p-2" onClick={startTraining}>
           Training
           <i className="bi bi-arrow-right ps-2"></i>
         </button>
       )}
+
       {showModal && (
         <div
           className="modal fade show d-block"

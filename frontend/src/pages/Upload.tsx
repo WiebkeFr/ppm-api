@@ -42,12 +42,28 @@ export const Upload = () => {
 
   return (
     <div>
-      <p>Helptext</p>
-      <h4>How to upload event logs?</h4>
-      <p></p>
-
+      <h4 className="mt-4">How to upload the event log?</h4>
+      <p>
+        Event log can be uploaded as a <b>XES</b> or <b>CSV</b> files.
+        <br/>
+        A CSV <b>needs</b> to contain the three columns in the right sequence:
+      </p>
+        <table className="table table-bordered w-75">
+            <tr>
+                <td className="text-center">Case ID</td>
+                <td className="text-center">Event ID</td>
+                <td className="text-center">Timestamp (optional)</td>
+              </tr>
+        </table>
+        <p>The XES needs to be structured according to the <a href="http://www.xes-standard.org/">XES-Standard</a>.</p>
+      <p>
+        Alternatively, a <b>XML</b> file of process can be uploaded.<br/>
+        The file is a downloaded testset from <a href="https://cpee.org/">Cloud Process Execution Engine (CPEE)</a>. <br/>
+        The Engine is then used to create traces. (Depending on the testset this can take some time.)
+      </p>
+        <br/>
       <label htmlFor="fileUpload" className="form-label">
-        Select file:
+          <b>Select CSV/XES or XML file:</b>
       </label>
       <div className="d-flex mb-3">
         <input

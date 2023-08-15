@@ -138,7 +138,7 @@ def generate_pm4py_log(filename=None, verbose=False):
 
 
 	if filename.split(".")[-1]=="xes":
-		input_file = filename  #"/home/max/Downloads/Sepsis Cases - Event Log.xes"
+		input_file = filename
 		from pm4py.objects.log.importer.xes import importer as xes_importer
 		pm4py_log = xes_importer.apply(input_file)
 	elif (filename.split(".")[-1]=="csv"):

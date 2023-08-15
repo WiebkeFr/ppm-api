@@ -1,12 +1,8 @@
 import os
 import uvicorn
 from fastapi import FastAPI
-from matplotlib import pyplot as plt
-from starlette.requests import Request
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
-from routers import upload, evaluate, train, frontend, internal
+from routers import upload, evaluate, train, frontend, internal, predict
 
 tags_metadata = [
     {
@@ -69,11 +65,6 @@ app.include_router(internal.router,
                    tags=["Internal"])
 
 
-@app.get("/test", tags=["API – Organization"])
-async def test(request: Request):
-    return {"state": "success"}
-
-
 @app.delete("/api/delete/{dir}", tags=["API – Organization"])
 async def delete_files_in_directory(dir: str):
     if os.path.isdir(f"data/{dir}"):
@@ -85,8 +76,10 @@ async def delete_files_in_directory(dir: str):
     else:
         return {"status": "provided directory does not exist"}
 
+
 app.mount("/static", StaticFiles(directory="frontend/build/static"), name="static")
 app.mount("/public", StaticFiles(directory="frontend/public"), name="build")
+
 
 def main():
     uvicorn.run("main:app", host="::1", port=9999, root_path=f"/ports/9999", reload=True)

@@ -16,7 +16,6 @@ async def evaluate_logs(request: Request):
     session_id = request.cookies.get('ppm-api')
     model_id = session_id.split(".")[0]
     path = f"data/evaluations/{model_id}.json"
-    suggestion_path = f"data/evaluations/{model_id}_suggestion.json"
     if os.path.isfile(path):
         with open(path) as f:
             return json.load(f)
@@ -29,12 +28,6 @@ async def evaluate_logs(request: Request):
     eval_path = os.path.join(os.curdir, path)
     with open(eval_path, "w") as outfile:
         json.dump(evaluation, outfile)
-
-    suggestion = set_config_suggestion(id)
-
-    suggestion_path = os.path.join(os.curdir, suggestion_path)
-    with open(suggestion_path, "w") as outfile:
-        json.dump(suggestion, outfile)
 
     return evaluation
 
@@ -77,7 +70,7 @@ async def get_recommended_selection(request: Request):
     else:
         eval_path = f"data/evaluations/{model_id}.json"
         if os.path.isfile(eval_path):
-            suggestion = set_config_suggestion(id)
+            suggestion = set_config_suggestion(model_id)
             with open(path, "w") as outfile:
                 json.dump(suggestion, outfile)
             return suggestion

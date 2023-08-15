@@ -17,11 +17,7 @@ const pages = [
   {
     href: "prediction",
     label: "Prediction",
-  },
-  {
-    href: "information",
-    label: "Additional Information",
-  },
+  }
 ];
 
 export const Sidebar = () => {

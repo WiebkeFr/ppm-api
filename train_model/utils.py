@@ -143,14 +143,11 @@ def extract_labels(log, event_encoding_dic, sequ_enc, event_enc, path):
         vectorizer = CountVectorizer(vocabulary=unique_events, preprocessor=lambda x: x,
                                      token_pattern='[a-zA-Z0-9$&+,:;=?@#|<>._^*()%!-]+', lowercase=False,
                                      ngram_range=(1, max(lens)))
-        # print(corpus[:5])
         X = vectorizer.fit_transform(corpus).toarray()
-        # print(X[:5])
         dic_path = os.path.join(os.curdir, "data", "encodings", model_id + '.json')
         Thread(target=dump_json, args=(vectorizer.vocabulary_, dic_path,)).start()
 
     else:
-        # print(X[:5])
         X = pad_sequences(X, value=0.0, dtype=object)
 
     X = np.asarray(X).astype('float32')

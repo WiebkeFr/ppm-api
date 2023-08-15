@@ -6,14 +6,13 @@ from os import listdir
 from os.path import isfile, join
 import pandas as pd
 from keras.utils import to_categorical
-from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import classification_report, ConfusionMatrixDisplay
 import matplotlib
 from matplotlib import pyplot as plt
 import numpy as np
 import pm4py
 from sklearn.model_selection import train_test_split
 from keras.models import load_model
-from evaluate_dataset.complexity import generate_pm4py_log
 from train_model.utils import embedded_encoding, one_hot_enc, extract_labels
 from sklearn.model_selection import StratifiedKFold
 from train_model.utils import early_stopping, log_model, lr_reducer, log_epoch, log_history, remove_lower_accuracies
