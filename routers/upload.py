@@ -14,9 +14,11 @@ from utils.process_uploads import process_csv, process_xes, process_xml
 from utils.subscriptions import add_subscription
 from utils.run_events import start_shell_script
 import shutil
+
 router = APIRouter()
 
 TRACE_NUMBER = 50
+
 
 def remove_starting_event(filename: str):
     filepath = os.path.join(os.curdir, "data", "logs", filename)
@@ -36,6 +38,12 @@ async def upload_event_logs(response: Response, background_tasks: BackgroundTask
     if file.filename[-3:] == 'xes':
         await process_xes(file, session_id)
     if file.filename[-3:] == 'xml':
+        progress_path = os.path.join(os.curdir, "data", "cpee", "{}_progress.txt".format(session_id))
+        with open(progress_path, 'w+') as f:
+            print("START")
+            f.write("0")
+            f.close()
+            print("written")
         background_tasks.add_task(process_xml, file, session_id)
 
     type = "xes" if file.filename[-3:] == "xes" else "csv"
@@ -59,24 +67,19 @@ async def collect_cpee_event_logs(request: Request):
 
     if body['topic'] == 'state' and body['content']["state"] == 'finished':
         print("FINISHED", body['instance'])
-        if os.path.isfile(progress_path):
-            with open(progress_path, 'w+') as f:
-                old_state = f.read()
-                print(old_state)
-                new_state = int(old_state) + 1
+        with open(progress_path, 'r+') as f:
+            old_state = f.read()
+            print(old_state)
+            new_state = int(old_state) + 1
 
-                if new_state == TRACE_NUMBER:
-                    print("FINISHED ALL")
-                    shutil.move(file_path, f"/data/logs/{id}.csv")
-                    os.remove(progress_path)
-                    return {"state": "trace finished"}
-                else:
-                    f.write(str(new_state))
-        else:
-            with open(progress_path, 'w+') as f:
-                print("START")
-                f.write("PROGRESS")
-                print("written")
+            if new_state == TRACE_NUMBER:
+                print("FINISHED ALL")
+                shutil.move(file_path, f"/data/logs/{id}.csv")
+                os.remove(progress_path)
+                return {"state": "trace finished"}
+            else:
+                f.write(str(new_state))
+                f.close()
 
     if body['name'] != 'done':
         return {"state": "activity called"}
