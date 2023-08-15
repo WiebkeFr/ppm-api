@@ -76,7 +76,7 @@ async def collect_cpee_event_logs(request: Request):
         else:
             with open(progress_path, 'w') as f:
                 print("START")
-                f.write("1")
+                f.write("PROGRESS")
                 f.close()
 
     if body['name'] != 'done':
