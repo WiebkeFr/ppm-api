@@ -171,20 +171,18 @@ class PPMModel:
             labeled_test,
             labeled_pred,
             normalize='true',
-            display_labels=labels,
             xticks_rotation=45,
             ax=ax,
         )
         ax.set_title(title)
         plt.rcParams.update({'font.size': 14})
-        ax.set_xticklabels(labels=labels, rotation=40, ha="right")
         plt.tight_layout()
         plt.savefig(result_path, pad_inches=5)
         plt.close()
 
         # create classification report with previously predicted values
         report_path = f"data/results/{model_id}_report.json"
-        report = classification_report(labeled_test, labeled_pred, target_names=labels, output_dict=True)
+        report = classification_report(labeled_test, labeled_pred, output_dict=True)
         with open(report_path, 'w') as fp:
             json.dump(report, fp)
 
