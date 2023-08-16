@@ -31,6 +31,7 @@ def log_state(progress_path: str, state: str):
         state (string): string to be written in file
     """
     with open(progress_path, 'w') as f:
+        print(state)
         f.write(state)
         f.close()
 
@@ -44,8 +45,8 @@ def log_history(path):
     return CSVLogger(path, separator=',', append=True)
 
 
-def log_epoch(path):
-    return LambdaCallback(on_epoch_end=lambda epoch, _: log_state(path, str(epoch)))
+def log_epoch(path, iteration):
+    return LambdaCallback(on_epoch_end=lambda epoch, _: log_state(path, str(epoch * iteration / 5)))
 
 
 ##

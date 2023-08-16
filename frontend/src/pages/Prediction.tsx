@@ -92,7 +92,7 @@ export const Prediction = () => {
         </div>
       )}
       {
-        result.next_event != "" && result.process.length != 0 &&
+        result.next_event !== "" && result.process.length !== 0 &&
           <div className="d-flex">
             <div className="me-4 mt-4">
               <h4>Ongoing Process</h4>
@@ -103,7 +103,7 @@ export const Prediction = () => {
               </table>
             </div>
             <div className="vr"></div>
-            <div className="mt-4">
+            <div className="ms-4 mt-4">
               <h4>Next Event</h4>
                 <table>
                     <tr>{result.next_event}</tr>

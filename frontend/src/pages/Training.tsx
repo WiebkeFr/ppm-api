@@ -5,9 +5,6 @@ const TRAINING_ERROR =
   "An error occurred while training!\nPlease make sure you uploaded a correct dataset and chose a valid selection of model-type and encodings.";
 const EVALUATION_ERROR =
   '<div class="alert alert-danger d-inline-block mt-3" role="alert">error occurred while training</div>';
-const EXPLANATION =
-    'Further explanation on the Metrics can be found under the following links:' +
-    '<a src="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">Scikit-Learn: Confusion Matrix</a>';
 
 export const Training = () => {
   const prefix = process.env.REACT_APP_PREFIX;
@@ -57,7 +54,7 @@ export const Training = () => {
   });
 
   const getTrainingData = () => {
-    if(confusionMatrix == ""){
+    if(confusionMatrix === ""){
       axios
       .get(prefix + "/api/evaluate/confusion-matrix")
       .then((res) => {
@@ -68,7 +65,7 @@ export const Training = () => {
       });
     }
 
-    if(trainingHistory == ""){
+    if(trainingHistory === ""){
       axios
       .get(prefix + "/api/evaluate/training-history")
       .then((res) => {
@@ -79,7 +76,7 @@ export const Training = () => {
       });
     }
 
-    if(JSON.stringify(report) == "{}"){
+    if(JSON.stringify(report) === "{}"){
       axios
       .get(prefix + "/api/evaluate/classification-report")
       .then((res) => {
@@ -188,7 +185,16 @@ export const Training = () => {
                   dangerouslySetInnerHTML={{ __html: confusionMatrix }}
                 />
               </div>
-              <div className="col m-auto">{confusionMatrix && EXPLANATION}</div>
+              <div className="col m-auto w-50 text-wrap">
+                Further explanation on the Metrics can be found under the following links: <br/>
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">
+                  Scikit-Learn: Confusion Matrix
+                </a>
+                <br/>
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html">
+                  Classification Report
+                </a>
+              </div>
             </div>
           </div>
         </>

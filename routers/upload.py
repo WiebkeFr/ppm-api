@@ -62,6 +62,7 @@ async def collect_cpee_event_logs(request: Request):
         with open(progress_path, 'r+') as f:
             old_state = f.read()
             new_state = 1 + int(old_state)
+            print("Finished Traces", new_state)
             if new_state == TRACE_NUMBER:
                 print("Finished: Logs Generated")
                 shutil.move(file_path, result_path)

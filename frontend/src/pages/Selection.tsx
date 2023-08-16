@@ -116,9 +116,12 @@ export const Selection = () => {
       ))}
 
         {
-            suggestion != "" &&
-            <div className="alert alert-info d-inline-block mt-4" role="alert">
-              Suggested Model Type: {suggestion}
+            suggestion !== "" &&
+            <div className="alert alert-info d-inline-block mt-4" role="alert"
+                style={{ width: "70%" }}>
+              Recommended Model Type: <b>{suggestion}</b><br/>
+                If the process requires long-term dependencies <b>Prefix-Padded</b> Encoding is favorable.
+                However, the training time of the <b>continous</b> encoded models are lower on average.
             </div>
         }
       <h4 className="mt-4">Characteristic of Event Log</h4>

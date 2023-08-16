@@ -67,7 +67,6 @@ async def train_model(request: Request, model_info: Model_Info, background_tasks
 @router.get("/training-progress")
 async def get_training_progress(request: Request):
     session_id = request.cookies.get('ppm-api').split(".")[0]
-    result_path = f"data/results/{session_id}.svg"
 
     try:
         state = False
@@ -87,8 +86,8 @@ async def get_training_progress(request: Request):
         if "ERROR" in state:
             return JSONResponse({"state": "error", "progress": "-1"})
 
-        if int(state) + 1 < EPOCH_SIZE:
-            return JSONResponse({"state": "training", "progress": str((int(state) + 1) / EPOCH_SIZE)})
+        if float(state) + 1 < EPOCH_SIZE:
+            return JSONResponse({"state": "training", "progress": str((float(state) + 1) / EPOCH_SIZE)})
 
     except (TypeError, pd.errors.EmptyDataError, FileNotFoundError) as e:
         return JSONResponse({"state": "training", "progress": "0"})

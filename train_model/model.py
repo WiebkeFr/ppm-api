@@ -113,7 +113,7 @@ class PPMModel:
                            epochs=EPOCH_SIZE,
                            validation_data=(self.X_train[validate_index], self.Y_train[validate_index]),
                            callbacks=[early_stopping, log_model(model_path), lr_reducer, log_history(training_path),
-                                      log_epoch(progress_path)])
+                                      log_epoch(progress_path, i)])
             end_time = time()
 
             if evaluate:
