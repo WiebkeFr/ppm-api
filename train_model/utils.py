@@ -46,7 +46,7 @@ def log_history(path):
 
 
 def log_epoch(path, iteration):
-    return LambdaCallback(on_epoch_end=lambda epoch, _: log_state(path, str(epoch * iteration / 5)))
+    return LambdaCallback(on_epoch_end=lambda epoch, _: log_state(path, str(epoch + iteration * 10)))
 
 
 ##
