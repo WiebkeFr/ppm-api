@@ -14,7 +14,7 @@ class LSTM_Model(PPMModel):
 
     def create(self):
         """
-            Create of LSTM-Model based on N.Tax et.al. [23]
+            Creates an LSTM-Model based on N.Tax et.al. [23]
         """
         if len(self.X_train.shape) != 3:
             self.X_train = np.reshape(self.X_train, (self.X_train.shape[0], self.X_train.shape[1], 1))

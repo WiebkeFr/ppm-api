@@ -14,7 +14,7 @@ class CNN_Model(PPMModel):
 
     def create(self):
         """
-            Create of CNN-Model based on
+            Creates an CNN-Model based on Pasquadibisceglie et al. [30]
         """
         if len(self.X_train.shape) != 3:
             self.X_train = np.reshape(self.X_train, (*self.X_train.shape, 1))
