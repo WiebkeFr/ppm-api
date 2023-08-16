@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+from os.path import join
 
 import pandas as pd
 from fastapi import APIRouter, BackgroundTasks
@@ -54,12 +55,21 @@ async def train_model(request: Request, model_info: Model_Info, background_tasks
     id = request.cookies.get('ppm-api').split(".")[0]
     training_path = f"data/training/{id}.csv"
 
+    if os.path.isfile(training_path) and overwrite != "true":
+        return {"state": "warning-duplicate"}
+
+    # delete old history and models
+    if os.path.isfile(training_path):
+        os.remove(training_path)
+        file_names = [f for f in os.listdir("data/models/") if os.path.isfile(join("data/models/", f)) and (id in f)]
+        for file in file_names:
+            model_path = f"data/models/{file}"
+            os.remove(model_path)
+
     config_path = os.path.join(os.curdir, f"data/configs/{id}.json")
     with open(config_path, "w+") as outfile:
         json.dump(model_info.model_dump(), outfile)
 
-    if os.path.isfile(training_path) and overwrite != "true":
-        return {"state": "warning-duplicate"}
     background_tasks.add_task(start_training, request.cookies.get('ppm-api'), model_info, False)
     return {"state": "success"}
 
