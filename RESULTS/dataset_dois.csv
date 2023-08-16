@@ -1,0 +1,43 @@
+Name,Abbr,DOI
+Flyer Instances,flyer_instances,10.1016/j.is.2019.101484
+L2,L2,10.1007/978-3-662-49851-4
+L3,L3,10.1007/978-3-662-49851-4
+L4,L4,10.1007/978-3-662-49851-4
+L5,L5,10.1007/978-3-662-49851-4
+L6,L6,10.1007/978-3-662-49851-4
+L7,L7,10.1007/978-3-662-49851-4
+Running Example,running_example,https://pm4py.fit.fraunhofer.de/documentation
+Activities of daily living of several individuals,activitylog_uci_labour,10.4121/uuid:01eaba9f-d3ed-4e04-9945-b8b302764176
+Activities of daily living of several individuals (weekend),activitylog_uci_weekends,10.4121/uuid:01eaba9f-d3ed-4e04-9945-b8b302764176
+BPI Challenge 2012,bpi_challenge_2012,10.4121/uuid:3926db30-f712-4394-aebc-75976070e91f
+PDC 2021.0,pdc_2021_0,10.4121/16803232.v1
+PDC 2021.0,pdc_2021_1,10.4121/16803232.v1
+PDC 2021.0,pdc_2021_2,10.4121/16803232.v1
+PDC 2021.0,pdc_2021_3,10.4121/16803232.v1
+PDC 2021.0,pdc_2021_4,10.4121/16803232.v1
+PDC 2021.0,pdc_2021_10,10.4121/16803232.v1
+PDC 2021.0,pdc_2021_13,10.4121/16803232.v1
+PDC 2021.0,pdc_2021_11,10.4121/16803232.v1
+Sepsis Cases - Event Log,sepsis_event_log,10.4121/uuid:915d2bfb-7e84-49ad-a286-dc35f063a460
+NASA Crew Exploration Vehicle (CEV),nasa_exploration_vehicle,10.4121/uuid:60383406-ffcd-441f-aa5e-4ec763426b76
+Conformance Checking Challenge 2019 (CCC19),ccc19_event_log,10.4121/uuid:c923af09-ce93-44c3-ace0-c5508cf103ad
+Help desk log of an Italian Company,helpdesk_dataset,10.4121/uuid:0c60edf1-6f83-4e75-9367-4c63b3e9d5bb
+PD - Artificial Event Log (3.1),round_3_treeSeed_1,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (3.4),round_3_treeSeed_4,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (3.6),round_3_treeSeed_6,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (3.7),round_3_treeSeed_7,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (3.10),round_3_treeSeed_10,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.1),round_4_treeSeed_1,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.2),round_4_treeSeed_2,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.3),round_4_treeSeed_3,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.4),round_4_treeSeed_4,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.5),round_4_treeSeed_5,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.6),round_4_treeSeed_6,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.7),round_4_treeSeed_7,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.8),round_4_treeSeed_8,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (4.10),round_4_treeSeed_10,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (5.1),round_5_treeSeed_1,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (5.3),round_5_treeSeed_3,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+PD - Artificial Event Log (5.2),round_5_treeSeed_2,10.4121/uuid:32cad43f-8bb9-46af-8333-48aae2bea037
+L1_parallel,L1_parallel,10.1007/978-3-662-49851-4
+L1_linear,L1_linear,10.1007/978-3-662-49851-4
