@@ -1,0 +1,2116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<string key="concept:name" value="generated log from process tree"></string>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_0"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_1"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_2"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_3"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_4"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_5"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_6"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_7"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_8"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_9"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_10"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_11"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_12"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_13"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_14"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_15"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_16"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_17"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_18"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_19"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_20"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_21"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_22"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_23"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_24"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_25"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_26"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_27"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_28"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_29"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_30"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_31"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_32"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_33"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_34"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_35"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_36"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_37"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_38"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_39"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_40"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_41"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_42"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_43"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_44"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_45"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_46"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_47"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_48"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_49"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_50"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_51"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_52"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_5"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_53"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_54"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_55"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_56"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_57"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_58"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_59"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_7"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_60"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_61"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_62"></string>
+	</trace>
+	<trace>
+		<event>
+			<string key="concept:name" value="a_0"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_1"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_2"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_3"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_4"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<event>
+			<string key="concept:name" value="a_6"></string>
+			<string key="lifecycle:transition" value="complete"></string>
+			<string key="org:resource" value="artificial"></string>
+		</event>
+		<string key="concept:name" value="Case_63"></string>
+	</trace>
+</log>

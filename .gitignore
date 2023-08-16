@@ -130,4 +130,19 @@ dmypy.json
 .pyre/
 
 # generated documents
-data/*/*
+data/configs/*.json
+data/cpee/*.txt
+data/cpee/*.json
+data/cpee/*.xml
+data/encodings/*.json
+data/evaluations/*.json
+data/logs/*.xes
+data/logs/*.csv
+data/models/*.sav
+data/models/*.keras
+data/predictions/*.xes
+data/results/*.svg
+data/results/*.json
+data/training/*.csv
+data/training/*.txt
+
