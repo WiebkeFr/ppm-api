@@ -1,6 +1,6 @@
 import subprocess
 
-TRACE_NUMBER = 100
+TRACE_NUMBER = 60
 
 
 def start_shell_script(file_path):

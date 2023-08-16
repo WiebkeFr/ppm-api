@@ -130,6 +130,7 @@ export const Training = () => {
           </div>
         </div>
       )}
+
       {progress === 100 && (
         <>
           <h4 className="my-2">Training Results: </h4>
@@ -186,7 +187,7 @@ export const Training = () => {
                 />
               </div>
               <div className="col m-auto w-50 text-wrap">
-                Further explanation on the Metrics can be found under the following links: <br/>
+                Further explanation on the metrics can be found under the following links: <br/>
                 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">
                   Scikit-Learn: Confusion Matrix
                 </a>
@@ -194,11 +195,29 @@ export const Training = () => {
                 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html">
                   Classification Report
                 </a>
+                <br/>
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">Accuracy</a>
+                <br/>
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html">Precision</a>
+                <br/>
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html">Recall</a>
+                <br/>
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">F1-Score</a>
               </div>
             </div>
           </div>
         </>
       )}
+
+      {"success" === state && (
+        <a href={prefix + "/prediction"} style={{ display: "block" }}>
+          <button className="border rounded my-5 p-2">
+            Prediction
+            <i className="bi bi-arrow-right ps-2"></i>
+          </button>
+        </a>
+      )}
+
     </div>
   );
 };
