@@ -78,7 +78,7 @@ export const Selection = () => {
 
   const restartTraining = () => {
     axios.post(prefix + "/api/train?overwrite=true", trainingInfo);
-    navigate(prefix + "/training");
+    navigate("/training");
   };
 
   return (
